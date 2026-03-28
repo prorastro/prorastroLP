@@ -8,10 +8,10 @@ const Footer = () => {
           <div className="md:col-span-1">
             <a href="/" className="flex items-center gap-2 font-display text-xl font-bold text-foreground mb-4">
               <MapPin className="h-6 w-6 text-primary" />
-              TrackPro
+              <span><span className="text-primary">Pro</span>Rastro</span>
             </a>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Líder em soluções de rastreamento veicular no Brasil. Segurança e tecnologia para você e sua frota.
+              Tecnologia em localização. Líder em soluções de rastreamento veicular no Brasil.
             </p>
           </div>
           <div>
@@ -33,14 +33,14 @@ const Footer = () => {
           <div>
             <h4 className="font-display font-semibold text-foreground mb-4">Contato</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>contato@trackpro.com.br</li>
+              <li>contato@prorastro.com.br</li>
               <li>(11) 4002-8922</li>
               <li>São Paulo, SP</li>
             </ul>
           </div>
         </div>
         <div className="border-t border-border pt-8 text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} TrackPro. Todos os direitos reservados.
+          © {new Date().getFullYear()} ProRastro. Todos os direitos reservados.
         </div>
       </div>
     </footer>

@@ -10,7 +10,7 @@ const Header = () => {
       <div className="container flex h-16 items-center justify-between">
         <a href="/" className="flex items-center gap-2 font-display text-xl font-bold text-foreground">
           <MapPin className="h-6 w-6 text-primary" />
-          TrackPro
+          <span><span className="text-primary">Pro</span>Rastro</span>
         </a>
 
         <nav className="hidden md:flex items-center gap-8">
