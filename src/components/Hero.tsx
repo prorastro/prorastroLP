@@ -1,4 +1,5 @@
 import { MapPin, Shield, Zap } from "lucide-react";
+import { useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 
 const HERO_VIDEO_URL = "https://videos.pexels.com/video-files/2053100/2053100-uhd_2560_1440_30fps.mp4";
