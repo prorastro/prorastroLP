@@ -27,66 +27,68 @@ const Process = () => {
   const { ref, inView } = useInView();
 
   return (
-    <section id="processo" className="py-24 md:py-32 bg-[#080808] relative overflow-hidden border-t border-white/5">
-      {/* Background flare */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 blur-[150px] pointer-events-none rounded-full" />
-      
+    <section id="processo" className="py-32 md:py-40 bg-[#060606] relative overflow-hidden">
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
+      {/* Background flares */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-primary/[0.04] blur-[120px] pointer-events-none rounded-full" />
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/[0.06] blur-[100px] pointer-events-none rounded-full" />
+
       <div className="container relative z-10 max-w-6xl mx-auto">
-        
+
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-20 animate-fade-up">
-          <p className="text-primary font-display font-black text-sm uppercase tracking-[0.3em] mb-4">
+        <div className="text-center max-w-3xl mx-auto mb-24">
+          <p className="text-primary font-display font-black text-xs uppercase tracking-[0.4em] mb-5 opacity-90">
             Processo
           </p>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 uppercase tracking-tight">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight leading-[1.1]">
             Em 3 passos,
-            <span className="block text-primary/90 mt-2">seu veículo protegido</span>
+            <span className="block text-primary mt-1" style={{ textShadow: "0 0 40px hsl(var(--primary)/0.4)" }}>
+              seu veículo protegido
+            </span>
           </h2>
         </div>
 
-        {/* Steps Grid */}
-        <div ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12 relative">
-          
-          {/* Connecting Line (Only visible on desktop) */}
-          <div className="hidden md:block absolute top-[4.5rem] left-[15%] right-[15%] h-[2px] bg-gradient-to-r from-transparent via-white/10 to-transparent z-0" />
+        {/* Steps */}
+        <div ref={ref} className="grid md:grid-cols-3 gap-6 md:gap-8 relative">
 
           {steps.map((step, i) => (
             <div
               key={step.number}
-              className={cn(
-                "relative z-10 flex flex-col items-center text-center transition-all duration-700 bg-black/40 md:bg-transparent p-8 md:p-0 rounded-3xl md:rounded-none border border-white/5 md:border-none",
-                inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-              )}
-              style={{ transitionDelay: `${i * 150}ms` }}
+              className="group relative flex flex-col transition-all duration-700"
             >
-              {/* Giant Background Number */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-10 md:-translate-y-16 text-[8rem] md:text-[12rem] font-black text-white/[0.02] select-none pointer-events-none z-0">
-                {step.number}
-              </div>
+              {/* Card */}
+              <div className="relative flex flex-col h-full rounded-none border-none bg-[#0D0D0D] p-10 transition-all duration-500 hover:bg-[#121212] hover:shadow-[0_20px_50px_rgba(0,0,0,0.8)]">
+                {/* Tactical Accent */}
+                <div className="absolute top-0 left-0 w-16 h-1 bg-primary/80" />
 
-              {/* Icon Circle */}
-              <div className="w-20 h-20 rounded-full bg-[#111] border border-white/10 flex items-center justify-center mb-6 relative z-10 group transition-all duration-500 hover:border-primary/50 hover:shadow-[0_0_30px_rgba(255,0,0,0.3)] hover:-translate-y-2">
-                <step.icon className="h-8 w-8 text-primary group-hover:scale-110 transition-transform" />
-                
-                {/* Step Marker Badge */}
-                <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-xs font-black shadow-lg">
-                  {i + 1}
+
+{/* Icon + badge */}
+                <div className="relative w-16 h-16 mb-10 z-10">
+                  <div className="absolute inset-0 rounded-none bg-primary/5 border border-primary/20 group-hover:bg-primary transition-all duration-500" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <step.icon className="h-7 w-7 text-primary group-hover:text-white transition-colors duration-300" />
+                  </div>
+                  {/* Badge */}
+                  <div className="absolute -top-3 -right-3 w-7 h-7 rounded-none bg-primary flex items-center justify-center text-[11px] font-black text-white shadow-[0_0_15px_rgba(255,0,0,0.6)]">
+                    {step.number}
+                  </div>
                 </div>
-              </div>
 
-              {/* Text Content */}
-              <div className="relative z-10">
-                <h3 className="font-display text-2xl font-black text-white mb-4 uppercase tracking-wide">
-                  {step.title}
-                </h3>
-                <p className="text-white/50 font-light leading-relaxed max-w-[280px] mx-auto">
-                  {step.desc}
-                </p>
+                {/* Text */}
+                <div className="relative z-10 flex-1 flex flex-col">
+                  <h3 className="font-display text-lg md:text-xl font-black text-white mb-3 uppercase tracking-wider">
+                    {step.title}
+                  </h3>
+                  <p className="text-white/45 text-sm leading-relaxed font-light group-hover:text-white/60 transition-colors duration-300">
+                    {step.desc}
+                  </p>
+                </div>
+
               </div>
             </div>
           ))}
         </div>
-        
+
       </div>
     </section>
   );

@@ -45,7 +45,8 @@ const Features = () => {
   const { ref, inView } = useInView();
 
   return (
-    <section id="recursos" className="py-24 bg-background relative overflow-hidden border-t border-white/5">
+    <section id="recursos" className="py-32 bg-background relative overflow-hidden">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
       <div className="container relative z-10 max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-20">
@@ -55,29 +56,24 @@ const Features = () => {
           <h2 className="font-display text-4xl md:text-5xl font-black text-foreground mb-4">
             Tudo que você precisa em um só lugar
           </h2>
-          <p className="text-muted-foreground text-lg">
-            Tecnologia avançada para garantir a segurança e o controle total da sua frota.
+          <p className="text-muted-foreground text-lg font-light leading-relaxed">
+            Engenharia de ponta projetada para entregar controle total sobre sua operação veicular.
           </p>
         </div>
 
-        {/* Cards */}
         <div ref={ref} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, i) => (
             <div
               key={feature.title}
-              className={cn(
-                "group rounded-2xl border border-white/5 bg-[#0D0D0D] p-8 transition-all duration-300 hover:border-primary/30 hover:bg-[#121212] hover:-translate-y-1 hover:shadow-[0_10px_40px_rgba(0,0,0,0.5)]",
-                inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-              )}
-              style={{ transitionDelay: `${i * 100}ms` }}
+              className="group rounded-none border-none bg-[#0D0D0D] p-10 transition-all duration-500 hover:bg-[#151515] hover:shadow-[0_20px_60px_rgba(0,0,0,0.8)]"
             >
-              <div className="mb-6 inline-flex rounded-xl bg-primary/10 border border-primary/20 p-4 text-primary transition-all duration-300 group-hover:bg-primary/20 group-hover:text-white">
+              <div className="mb-8 inline-flex rounded-none bg-primary/5 border border-primary/20 p-5 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-white">
                 <feature.icon className="h-7 w-7" />
               </div>
-              <h3 className="font-display text-xl font-bold text-white mb-2">
+              <h3 className="font-display text-xl font-black text-white mb-4 uppercase tracking-wider">
                 {feature.title}
               </h3>
-              <p className="text-muted-foreground leading-relaxed text-sm">
+              <p className="text-white/40 leading-relaxed text-sm font-light group-hover:text-white/60 transition-colors">
                 {feature.description}
               </p>
             </div>

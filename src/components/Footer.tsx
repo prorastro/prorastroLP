@@ -10,7 +10,8 @@ const socialLinks = [
 
 const Footer = () => {
   return (
-    <footer id="contato" className="border-t border-border bg-secondary/30">
+    <footer id="contato" className="bg-[#040404] relative">
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
       <div className="container py-16">
         <div className="grid md:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
@@ -39,7 +40,7 @@ const Footer = () => {
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="h-9 w-9 rounded-lg bg-secondary border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/40 hover:bg-primary/10 transition-all"
+                  className="h-10 w-10 rounded-none bg-white/5 border border-white/10 flex items-center justify-center text-white/50 hover:text-primary hover:border-primary transition-all"
                 >
                   <Icon className="h-4 w-4" />
                 </a>
@@ -137,7 +138,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-border pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
+        <div className="border-t border-white/5 pt-10 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs font-mono uppercase tracking-widest text-white/30">
           <span>
             © {new Date().getFullYear()} ProRastro. Todos os direitos
             reservados.

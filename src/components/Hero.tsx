@@ -103,43 +103,65 @@ const Hero = () => {
       <div className="container relative z-10 py-32 md:py-48 flex flex-col justify-center min-h-[80vh]">
         <div className="max-w-3xl space-y-8 md:space-y-10">
           
-          <div className="animate-fade-up" style={{ animationDelay: "100ms" }}>
-            <h1 className="font-display text-6xl md:text-8xl lg:text-[7rem] font-black leading-none tracking-tight text-white uppercase" style={{ textShadow: "0 4px 30px rgba(0,0,0,0.8)" }}>
-              <span className="text-primary" style={{ textShadow: "0 0 30px hsl(var(--primary) / 0.6)" }}>PRO</span>RASTRO
+          <div className="" style={{ animationDelay: "100ms" }}>
+            <h1 className="font-display text-6xl md:text-8xl lg:text-[7.5rem] font-black leading-[0.9] tracking-tighter text-white uppercase" style={{ textShadow: "0 10px 40px rgba(0,0,0,0.9)" }}>
+              <span className="text-primary inline-block" style={{ filter: "drop-shadow(0 0 25px hsl(var(--primary) / 0.5))" }}>PRO</span>RASTRO
             </h1>
-            <h2 className="mt-5 md:mt-6 text-2xl md:text-4xl font-display font-bold uppercase tracking-[0.15em] text-white/95" style={{ textShadow: "0 4px 20px rgba(0,0,0,1)" }}>
-              É Tecnologia em Localização
+            <h2 className="mt-4 md:mt-2 text-xl md:text-3xl font-display font-bold uppercase tracking-[0.3em] text-white/90" style={{ textShadow: "0 4px 20px rgba(0,0,0,1)" }}>
+              Tecnologia de Localização Tática
             </h2>
           </div>
 
-          <div className="animate-fade-up" style={{ animationDelay: "200ms" }}>
-            <p className="text-lg md:text-xl text-white/80 max-w-xl leading-relaxed font-light border-l-[3px] border-primary pl-6" style={{ textShadow: "0 2px 10px rgba(0,0,0,0.8)" }}>
-              Rastreamento em tempo real com cobertura nacional. Saiba onde seu
-              veículo está 24 horas por dia, 7 dias por semana, com absoluta precisão e
-              segurança impecáveis.
-            </p>
+          <div className="" style={{ animationDelay: "200ms" }}>
+            <div className="border-l-[2px] border-primary pl-8 py-2">
+              <p className="text-lg md:text-xl text-white/70 max-w-xl leading-relaxed font-light" style={{ textShadow: "0 2px 10px rgba(0,0,0,0.8)" }}>
+                Rastreamento em tempo real com cobertura total. Precisão absoluta para o seu 
+                patrimônio através de módulos de comunicação de grau industrial.
+              </p>
+              
+              {/* Telemetry HUD */}
+              <div className="mt-8 flex flex-wrap gap-8 font-mono text-[10px] tracking-[0.2em] text-primary/80 uppercase">
+                <div className="space-y-1">
+                  <div className="text-white/40">Status</div>
+                  <div className="flex items-center gap-2">
+                    <span className="relative flex h-2 w-2">
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                    </span>
+                    LIVE_TRACKING
+                  </div>
+                </div>
+                <div className="space-y-1">
+                  <div className="text-white/40">Uptime</div>
+                  <div>99.98%_AVAIL</div>
+                </div>
+                <div className="space-y-1">
+                  <div className="text-white/40">Latency</div>
+                  <div>&lt; 50MS_RESPONSE</div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-5 pt-8 animate-fade-up" style={{ animationDelay: "300ms" }}>
+          <div className="flex flex-col sm:flex-row gap-5 pt-8" style={{ animationDelay: "300ms" }}>
             <Button
               size="lg"
-              className="text-lg px-10 py-7 md:py-8 rounded-xl font-display font-semibold transition-all hover:-translate-y-1 active:scale-95 bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_8px_30px_hsl(var(--primary)/0.4)] border border-primary/50 relative overflow-hidden group"
+              className="text-sm md:text-base px-10 py-7 md:py-8 rounded-none font-display font-black uppercase tracking-[0.2em] transition-all hover:-translate-y-1 active:scale-95 bg-primary text-white hover:bg-primary/90 shadow-[0_10px_40px_hsl(var(--primary)/0.4)] relative overflow-hidden group border-none"
             >
-              <span className="relative z-10">Solicitar Demonstração</span>
+              <span className="relative z-10">Solicitar Acesso</span>
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
             </Button>
             <Button 
               size="lg" 
-              className="text-lg px-10 py-7 md:py-8 rounded-xl font-display font-semibold bg-white/5 hover:bg-white/10 border border-white/15 text-white backdrop-blur-xl transition-all hover:-translate-y-1 active:scale-95 shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.4)]"
+              className="text-sm md:text-base px-10 py-7 md:py-8 rounded-none font-display font-black uppercase tracking-[0.2em] bg-white/5 hover:bg-white/10 border border-white/20 text-white backdrop-blur-xl transition-all hover:-translate-y-1 active:scale-95 shadow-[0_10px_40px_rgba(0,0,0,0.5)]"
             >
-              Conhecer Planos
+              Ver Planos
             </Button>
           </div>
         </div>
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce-y opacity-50">
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-50">
         <ChevronDown className="h-6 w-6 text-muted-foreground" />
       </div>
     </section>

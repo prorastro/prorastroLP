@@ -31,10 +31,11 @@ const FAQ = () => {
   const { ref, inView } = useInView();
 
   return (
-    <section id="faq" className="py-24 md:py-32 relative overflow-hidden bg-black border-t border-white/5">
+    <section id="faq" className="py-32 md:py-40 relative overflow-hidden bg-[#040404]">
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
       <div className="container max-w-4xl relative z-10" ref={ref}>
         {/* Header */}
-        <div className="text-center mb-20 animate-fade-up">
+        <div className="text-center mb-20">
           <p className="text-primary font-display font-black text-sm uppercase tracking-[0.3em] mb-4 flex items-center justify-center gap-2">
             <MessageSquare className="h-4 w-4" /> Dúvidas Frequentes
           </p>
@@ -54,29 +55,28 @@ const FAQ = () => {
               <div 
                 key={i} 
                 className={cn(
-                  "border rounded-2xl overflow-hidden transition-all duration-300",
-                  inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12",
+                  "rounded-none overflow-hidden transition-all duration-500",
                   isOpen 
-                    ? "bg-[#0a0a0a] border-primary/40 shadow-[0_5px_30px_rgba(255,0,0,0.05)]" 
-                    : "bg-[#050505] border-white/5 hover:border-white/10"
+                    ? "bg-[#0E0E0E] shadow-[0_30px_80px_rgba(0,0,0,0.8)]" 
+                    : "bg-[#080808] hover:bg-[#0A0A0A]"
                 )}
-                style={{ transitionDelay: `${i * 80}ms` }}
               >
+                <div className={cn("h-[1px] w-full transition-all duration-500", isOpen ? "bg-primary" : "bg-white/5")} />
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : i)}
                   className="w-full flex items-center justify-between p-6 md:p-8 text-left focus:outline-none"
                 >
                   <span className={cn(
-                    "font-display md:text-lg font-bold transition-colors uppercase tracking-wide",
-                    isOpen ? "text-primary" : "text-white/80 group-hover:text-white"
+                    "font-display md:text-lg font-black transition-colors uppercase tracking-[0.15em]",
+                    isOpen ? "text-primary" : "text-white/70 hover:text-white"
                   )}>
                     {faq.question}
                   </span>
                   <div className={cn(
-                    "w-8 h-8 rounded-full bg-white/5 flex items-center justify-center transition-transform duration-300",
-                    isOpen && "bg-primary/20 text-primary rotate-180"
+                    "w-10 h-10 rounded-none bg-white/5 flex items-center justify-center transition-all duration-300",
+                    isOpen && "bg-primary text-white rotate-180 shadow-[0_0_15px_rgba(255,0,0,0.4)]"
                   )}>
-                    <ChevronDown className="h-4 w-4" />
+                    <ChevronDown className="h-5 w-5" />
                   </div>
                 </button>
                 <div 

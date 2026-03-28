@@ -54,7 +54,8 @@ const Pricing = () => {
   const { ref, inView } = useInView();
 
   return (
-    <section id="planos" className="py-24 md:py-32 bg-[#050505] relative overflow-hidden">
+    <section id="planos" className="py-32 md:py-40 bg-background relative overflow-hidden">
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
       {/* Decorative Red Cyber Grid & Blur */}
       <div 
         className="absolute inset-0 pointer-events-none opacity-[0.03] mix-blend-screen"
@@ -68,7 +69,7 @@ const Pricing = () => {
 
       <div className="container relative z-10">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-20 animate-fade-up">
+        <div className="text-center max-w-3xl mx-auto mb-20">
           <p className="text-primary font-display font-black text-sm uppercase tracking-[0.3em] mb-4">
             Investimento
           </p>
@@ -86,19 +87,17 @@ const Pricing = () => {
             <div
               key={plan.name}
               className={cn(
-                "rounded-[2rem] p-8 md:p-10 flex flex-col relative transition-all duration-500",
+                "rounded-none p-10 flex flex-col relative transition-all duration-500",
                 plan.highlighted
-                  ? "bg-[#111] border-2 border-primary/60 shadow-[0_0_50px_rgba(255,0,0,0.15)] z-20 scale-100 lg:scale-[1.05]"
-                  : "bg-[#0a0a0a] border border-white/5 opacity-80 hover:opacity-100 hover:border-white/15 z-10 scale-100 hover:-translate-y-2",
-                inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+                  ? "bg-[#0E0E0E] shadow-[0_30px_100px_rgba(0,0,0,1)] border-t-4 border-primary z-20 scale-100 lg:scale-[1.05]"
+                  : "bg-[#080808] border-none opacity-80 hover:opacity-100 z-10 scale-100 hover:-translate-y-2"
               )}
-              style={plan.highlighted ? {} : { transitionDelay: `${i * 100}ms` }}
             >
               {plan.highlighted && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <div className="flex items-center gap-2 bg-primary text-white text-[11px] font-black uppercase tracking-widest px-5 py-2 rounded-full shadow-[0_4px_20px_rgba(255,0,0,0.5)]">
+                  <div className="flex items-center gap-2 bg-primary text-white text-[10px] font-black uppercase tracking-[0.2em] px-6 py-2.5 rounded-none shadow-[0_10px_30px_rgba(255,0,0,0.4)]">
                     <ShieldCheck className="h-4 w-4" />
-                    Mais Vendido
+                    STATUS_PRIORITÁRIO
                   </div>
                 </div>
               )}
@@ -137,10 +136,10 @@ const Pricing = () => {
               <Button
                 size="lg"
                 className={cn(
-                  "w-full font-display text-sm md:text-base font-black tracking-widest uppercase rounded-xl py-6",
+                  "w-full font-display text-sm md:text-base font-black tracking-[0.2em] uppercase rounded-none py-8",
                   plan.highlighted
-                    ? "bg-primary text-white hover:bg-primary/90 shadow-[0_10px_30px_rgba(255,0,0,0.3)] hover:-translate-y-1 transition-transform"
-                    : "bg-[#161616] text-white hover:bg-[#222] border-none"
+                    ? "bg-primary text-white hover:bg-primary/90 shadow-[0_15px_40px_rgba(255,0,0,0.4)]"
+                    : "bg-white/5 text-white hover:bg-white/10"
                 )}
               >
                 {plan.cta}
