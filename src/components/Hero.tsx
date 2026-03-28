@@ -1,4 +1,5 @@
 import { MapPin, Shield, Zap } from "lucide-react";
+import { useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 
 const HERO_VIDEO_URL = "https://videos.pexels.com/video-files/2053100/2053100-uhd_2560_1440_30fps.mp4";
@@ -8,12 +9,12 @@ const Hero = () => {
     <section className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0">
         <video
+          ref={(el) => { if (el) el.playbackRate = 0.5; }}
           autoPlay
           muted
           loop
           playsInline
           className="w-full h-full object-cover"
-          poster=""
         >
           <source src={HERO_VIDEO_URL} type="video/mp4" />
         </video>
