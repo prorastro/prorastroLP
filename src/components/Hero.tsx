@@ -9,12 +9,12 @@ const Hero = () => {
     <section className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0">
         <video
+          ref={(el) => { if (el) el.playbackRate = 0.5; }}
           autoPlay
           muted
           loop
           playsInline
           className="w-full h-full object-cover"
-          poster=""
         >
           <source src={HERO_VIDEO_URL} type="video/mp4" />
         </video>
