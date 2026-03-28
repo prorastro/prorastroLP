@@ -1,19 +1,23 @@
 import { MapPin, Shield, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroBg from "@/assets/hero-bg.jpg";
+
+const HERO_VIDEO_URL = "https://videos.pexels.com/video-files/2053100/2053100-uhd_2560_1440_30fps.mp4";
 
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0">
-        <img
-          src={heroBg}
-          alt="Rotas de rastreamento veicular"
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
           className="w-full h-full object-cover"
-          width={1920}
-          height={1080}
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/30" />
+          poster=""
+        >
+          <source src={HERO_VIDEO_URL} type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/40" />
       </div>
 
       <div className="container relative z-10 py-24">
