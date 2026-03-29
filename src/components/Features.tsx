@@ -53,7 +53,7 @@ const Features = () => {
           <p className="text-primary font-display font-semibold text-sm uppercase tracking-widest mb-3">
             Recursos
           </p>
-          <h2 className="font-display text-4xl md:text-5xl font-black text-foreground mb-4">
+          <h2 className="font-display text-2xl md:text-3xl font-black text-foreground mb-4">
             Tudo que você precisa em um só lugar
           </h2>
           <p className="text-muted-foreground text-lg font-light leading-relaxed">
@@ -65,12 +65,12 @@ const Features = () => {
           {features.map((feature, i) => (
             <div
               key={feature.title}
-              className="group rounded-none border-none bg-[#0D0D0D] p-10 transition-all duration-500 hover:bg-[#151515] hover:shadow-[0_20px_60px_rgba(0,0,0,0.8)]"
+              className="group rounded-none border-none bg-[#0D0D0D] p-8 md:p-10 transition-all duration-500 hover:bg-[#151515] hover:shadow-[0_20px_60px_rgba(0,0,0,0.8)]"
             >
               <div className="mb-8 inline-flex rounded-none bg-primary/5 border border-primary/20 p-5 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-white">
                 <feature.icon className="h-7 w-7" />
               </div>
-              <h3 className="font-display text-xl font-black text-white mb-4 uppercase tracking-wider">
+              <h3 className="font-display text-lg font-black text-white mb-4 uppercase tracking-wider">
                 {feature.title}
               </h3>
               <p className="text-white/40 leading-relaxed text-sm font-light group-hover:text-white/60 transition-colors">

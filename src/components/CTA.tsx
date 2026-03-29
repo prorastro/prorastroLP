@@ -15,12 +15,7 @@ const CTA = () => {
           className="text-center max-w-4xl mx-auto p-12 md:p-24 rounded-none bg-[#0E0E0E] shadow-[0_40px_100px_rgba(0,0,0,1)] relative overflow-hidden"
         >
           <div className="relative z-10">
-            <div className="inline-flex items-center gap-3 rounded-none bg-primary px-8 py-3 text-xs md:text-sm font-black text-white uppercase tracking-[0.3em] mb-10 shadow-[0_10px_30px_rgba(255,0,0,0.4)]">
-              <Crosshair className="h-5 w-5" />
-              CONSEC_ESTABLISHED
-            </div>
-
-            <h2 className="font-display text-4xl md:text-6xl font-black text-white mb-6 leading-tight uppercase tracking-tight">
+            <h2 className="font-display text-2xl md:text-3xl lg:text-5xl font-black text-white mb-6 leading-tight uppercase tracking-tight">
               PRONTO PARA PROTEGER{" "}
               <span className="block text-primary">SEU VEÍCULO?</span>
             </h2>
@@ -30,13 +25,15 @@ const CTA = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-5 justify-center mt-8">
-              <Button
-                size="lg"
-                className="text-sm md:text-lg px-12 py-8 md:py-10 font-display font-black uppercase tracking-[0.3em] bg-primary text-white hover:bg-primary/90 shadow-[0_20px_50px_rgba(255,0,0,0.5)] transition-all group rounded-none border-none"
-              >
-                SOLICITAR ACESSO AGORA
-                <ArrowRight className="ml-4 h-6 w-6 group-hover:translate-x-3 transition-transform" />
-              </Button>
+              <a href="https://wa.me/5591991837470" target="_blank" rel="noopener noreferrer">
+                <Button
+                  size="lg"
+                  className="text-xs md:text-sm px-12 py-7 md:py-8 font-display font-black uppercase tracking-[0.3em] bg-primary text-white hover:bg-primary/90 shadow-[0_20px_50px_rgba(255,0,0,0.5)] transition-all group rounded-none border-none"
+                >
+                  FALAR COM UM ATENDENTE
+                  <ArrowRight className="ml-4 h-5 w-5 group-hover:translate-x-3 transition-transform" />
+                </Button>
+              </a>
             </div>
           </div>
         </div>

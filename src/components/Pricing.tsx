@@ -1,67 +1,63 @@
 import { Check, ShieldCheck } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { useInView } from "@/hooks/use-in-view";
-import { cn } from "@/lib/utils";
 
 const plans = [
   {
-    name: "PESSOAL",
-    price: "59",
-    description: "Ideal para veículos particulares únicos",
+    name: "Básico",
+    price: "50",
+    description: "Segurança essencial para seu cotidiano",
     features: [
       "Rastreamento em tempo real",
-      "Aplicativo iOS & Android",
-      "Alertas de velocidade",
-      "Histórico de 30 dias",
-      "Suporte por e-mail",
+      "Histórico de rotas",
+      "Aplicativo para celular",
+      "Suporte 24h",
     ],
     highlighted: false,
-    cta: "CONTRATAR AGORA",
+    note: null,
   },
   {
-    name: "PROFISSIONAL",
-    price: "99",
-    description: "Para pequenas frotas empresariais",
+    name: "Plus",
+    price: "70",
+    description: "Proteção avançada com assistência tática",
     features: [
-      "Tudo do plano Pessoal",
-      "Cercas virtuais ilimitadas",
-      "Bloqueio remoto antifurto",
-      "Relatórios de performance",
-      "Histórico de 90 dias",
-      "Suporte prioritário 24h",
+      "Rastreamento em tempo real",
+      "Histórico de rotas",
+      "Aplicativo para celular",
+      "Suporte 24h",
+      "Alerta de ignição",
+      "Cerca eletrônica",
+      "Suporte de guincho (roubo/furto)",
     ],
     highlighted: true,
-    cta: "COMEÇAR AGORA",
+    note: null,
   },
   {
-    name: "EMPRESARIAL",
-    price: "179",
-    description: "Gestão completa para transportadoras",
+    name: "Premium",
+    price: "90",
+    description: "O mais completo nível de blindagem",
     features: [
-      "Tudo do plano Profissional",
-      "Dashboard de frotas complexas",
-      "API de integração (ERPs)",
-      "Relatórios sob medida",
-      "Histórico ilimitado",
-      "Gerente de conta proativo",
+      "Tudo do plano Plus",
+      "Troca da bateria (após 1 ano)",
+      "WebTag de rastreamento extra",
+      "Prioridade no atendimento",
     ],
     highlighted: false,
-    cta: "FALAR COM VENDAS",
+    note: "Adesão única: R$ 99,00",
   },
 ];
 
 const Pricing = () => {
-  const { ref, inView } = useInView();
+  const { ref } = useInView();
 
   return (
     <section id="planos" className="py-32 md:py-40 bg-background relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
-      {/* Decorative Red Cyber Grid & Blur */}
-      <div 
+      <div
         className="absolute inset-0 pointer-events-none opacity-[0.03] mix-blend-screen"
         style={{
-          backgroundImage: "linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)",
-          backgroundSize: "60px 60px"
+          backgroundImage:
+            "linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
         }}
       />
       <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-primary/5 blur-[150px] pointer-events-none rounded-full" />
@@ -73,7 +69,7 @@ const Pricing = () => {
           <p className="text-primary font-display font-black text-sm uppercase tracking-[0.3em] mb-4">
             Investimento
           </p>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 uppercase tracking-tight">
+          <h2 className="font-display text-2xl md:text-3xl lg:text-5xl font-black text-white mb-6 uppercase tracking-tight">
             Escolha o plano ideal
           </h2>
           <p className="text-white/60 text-lg md:text-xl font-light">
@@ -81,76 +77,174 @@ const Pricing = () => {
           </p>
         </div>
 
-        {/* Cards Wrapper */}
-        <div ref={ref} className="grid lg:grid-cols-3 gap-6 max-w-[1100px] mx-auto items-center">
-          {plans.map((plan, i) => (
+        {/* Cards */}
+        <div ref={ref} className="grid lg:grid-cols-3 gap-6 max-w-[1100px] mx-auto px-4 md:px-0">
+          {plans.map((plan) => (
             <div
               key={plan.name}
-              className={cn(
-                "rounded-none p-10 flex flex-col relative transition-all duration-500",
-                plan.highlighted
-                  ? "bg-[#0E0E0E] shadow-[0_30px_100px_rgba(0,0,0,1)] border-t-4 border-primary z-20 scale-100 lg:scale-[1.05]"
-                  : "bg-[#080808] border-none opacity-80 hover:opacity-100 z-10 scale-100 hover:-translate-y-2"
-              )}
+              style={{
+                background: plan.highlighted ? "#0E0E0E" : "#080808",
+                borderTop: plan.highlighted ? "4px solid hsl(var(--primary))" : "1px solid rgba(255,255,255,0.05)",
+                boxShadow: plan.highlighted ? "0 30px 100px rgba(0,0,0,0.9)" : "none",
+                display: "flex",
+                flexDirection: "column",
+                position: "relative",
+                padding: plan.highlighted ? "48px 40px 40px" : "40px",
+              }}
             >
+              {/* Badge */}
               {plan.highlighted && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <div className="flex items-center gap-2 bg-primary text-white text-[10px] font-black uppercase tracking-[0.2em] px-6 py-2.5 rounded-none shadow-[0_10px_30px_rgba(255,0,0,0.4)]">
-                    <ShieldCheck className="h-4 w-4" />
-                    STATUS_PRIORITÁRIO
+                <div style={{ position: "absolute", top: "-18px", left: "50%", transform: "translateX(-50%)" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "6px",
+                      background: "hsl(var(--primary))",
+                      color: "white",
+                      fontSize: "10px",
+                      fontWeight: 900,
+                      textTransform: "uppercase",
+                      letterSpacing: "0.2em",
+                      padding: "6px 20px",
+                      boxShadow: "0 10px 30px rgba(255,0,0,0.4)",
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    <ShieldCheck size={12} />
+                    MELHOR PLANO
                   </div>
                 </div>
               )}
 
-              <div className="mb-6">
-                <h3 className="font-display text-2xl font-black text-white tracking-widest uppercase">
-                  {plan.name}
-                </h3>
-                <p className="text-white/50 font-light mt-2 h-10">
-                  {plan.description}
-                </p>
+              {/* Name */}
+              <h3
+                style={{
+                  fontFamily: "var(--font-display, sans-serif)",
+                  fontSize: "18px",
+                  fontWeight: 900,
+                  color: "white",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.15em",
+                  marginBottom: "8px",
+                }}
+              >
+                {plan.name}
+              </h3>
+
+              {/* Description */}
+              <p style={{ color: "rgba(255,255,255,0.5)", fontWeight: 300, marginBottom: "24px", minHeight: "44px" }}>
+                {plan.description}
+              </p>
+
+              {/* Price */}
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "flex-start",
+                  gap: "4px",
+                  paddingBottom: "24px",
+                  marginBottom: "24px",
+                  borderBottom: "1px solid rgba(255,255,255,0.05)",
+                }}
+              >
+                <span style={{ color: "rgba(255,255,255,0.4)", fontSize: "13px", fontWeight: 700, marginTop: "8px" }}>R$</span>
+                <span
+                  style={{
+                    fontFamily: "var(--font-display, sans-serif)",
+                    fontSize: "52px",
+                    fontWeight: 900,
+                    color: "white",
+                    lineHeight: 1,
+                    letterSpacing: "-0.03em",
+                  }}
+                >
+                  {plan.price}
+                </span>
+                <span style={{ color: "rgba(255,255,255,0.4)", fontSize: "13px", fontWeight: 700, alignSelf: "flex-end", marginBottom: "4px" }}>/mês</span>
               </div>
 
-              <div className="mb-8 pb-8 border-b border-white/5">
-                <div className="flex items-start gap-1">
-                  <span className="text-white/40 text-sm font-bold mt-2">R$</span>
-                  <span className="font-display text-6xl font-black text-white tracking-tighter leading-none">
-                    {plan.price}
-                  </span>
-                  <span className="text-white/40 text-sm self-end mb-1 font-bold">/mês</span>
-                </div>
-              </div>
-
-              <ul className="space-y-4 mb-10 flex-1">
+              {/* Features */}
+              <ul style={{ listStyle: "none", padding: 0, margin: "0 0 24px 0", flexGrow: 1 }}>
                 {plan.features.map((feature) => (
-                  <li
-                    key={feature}
-                    className="flex items-start gap-3 text-sm md:text-base text-white/70 font-light"
-                  >
-                    <Check className={cn("h-5 w-5 shrink-0", plan.highlighted ? "text-primary" : "text-white/20")} />
-                    <span>{feature}</span>
+                  <li key={feature} style={{ display: "flex", alignItems: "flex-start", gap: "12px", marginBottom: "16px" }}>
+                    <Check
+                      size={18}
+                      style={{
+                        flexShrink: 0,
+                        marginTop: "2px",
+                        color: plan.highlighted ? "hsl(var(--primary))" : "rgba(255,255,255,0.2)",
+                      }}
+                    />
+                    <span style={{ color: "rgba(255,255,255,0.7)", fontSize: "14px", fontWeight: 300, lineHeight: 1.5 }}>
+                      {feature}
+                    </span>
                   </li>
                 ))}
               </ul>
 
-              <Button
-                size="lg"
-                className={cn(
-                  "w-full font-display text-sm md:text-base font-black tracking-[0.2em] uppercase rounded-none py-8",
-                  plan.highlighted
-                    ? "bg-primary text-white hover:bg-primary/90 shadow-[0_15px_40px_rgba(255,0,0,0.4)]"
-                    : "bg-white/5 text-white hover:bg-white/10"
-                )}
-              >
-                {plan.cta}
-              </Button>
+              {/* Note */}
+              {plan.note && (
+                <p
+                  style={{
+                    textAlign: "center",
+                    fontSize: "10px",
+                    color: "hsl(var(--primary) / 0.8)",
+                    fontFamily: "monospace",
+                    fontWeight: 700,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.15em",
+                    marginBottom: "16px",
+                  }}
+                >
+                  {plan.note}
+                </p>
+              )}
+
+              {/* CTA Button */}
+              <a href="https://wa.me/5591991837470" target="_blank" rel="noopener noreferrer">
+                <button
+                  style={{
+                    width: "100%",
+                    padding: "18px 24px",
+                    background: plan.highlighted ? "hsl(var(--primary))" : "rgba(255,255,255,0.05)",
+                    color: "white",
+                    border: plan.highlighted ? "none" : "1px solid rgba(255,255,255,0.1)",
+                    fontSize: "12px",
+                    fontFamily: "var(--font-display, sans-serif)",
+                    fontWeight: 900,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.2em",
+                    cursor: "pointer",
+                    boxShadow: plan.highlighted ? "0 15px 40px rgba(255,0,0,0.4)" : "none",
+                    transition: "all 0.2s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLButtonElement).style.opacity = "0.85";
+                    (e.currentTarget as HTMLButtonElement).style.transform = "translateY(-2px)";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLButtonElement).style.opacity = "1";
+                    (e.currentTarget as HTMLButtonElement).style.transform = "translateY(0)";
+                  }}
+                >
+                  Falar com um atendente
+                </button>
+              </a>
             </div>
           ))}
         </div>
 
-        <p className="text-center text-sm text-white/40 mt-16 font-light uppercase tracking-widest">
-          Instalação gratuita &nbsp;|&nbsp; Zero fidelidade &nbsp;|&nbsp; Cancele a qualquer momento
-        </p>
+        {/* Footer labels */}
+        <div className="mt-16">
+          <p className="text-center text-sm text-white/40 font-light uppercase tracking-widest flex items-center justify-center gap-3 flex-wrap">
+            <span>Instalação gratuita</span>
+            <span className="w-1 h-1 rounded-full bg-white/20" />
+            <span>Zero fidelidade</span>
+            <span className="w-1 h-1 rounded-full bg-white/20" />
+            <span>Cancele a qualquer momento</span>
+          </p>
+        </div>
       </div>
     </section>
   );

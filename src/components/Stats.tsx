@@ -28,7 +28,7 @@ const Stats = () => {
               )}
               style={{ transitionDelay: `${i * 100}ms` }}
             >
-              <div className="font-display text-4xl md:text-6xl font-black text-white mb-3 tracking-tighter drop-shadow-lg">
+              <div className="font-display text-2xl md:text-3xl font-black text-white mb-3 tracking-tighter drop-shadow-lg">
                 {stat.number}
               </div>
               <div className="text-xs md:text-sm text-white/90 font-bold tracking-widest uppercase drop-shadow-md">

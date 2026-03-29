@@ -40,7 +40,7 @@ const Process = () => {
           <p className="text-primary font-display font-black text-xs uppercase tracking-[0.4em] mb-5 opacity-90">
             Processo
           </p>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight leading-[1.1]">
+          <h2 className="font-display text-2xl md:text-3xl lg:text-5xl font-black text-white uppercase tracking-tight leading-[1.1]">
             Em 3 passos,
             <span className="block text-primary mt-1" style={{ textShadow: "0 0 40px hsl(var(--primary)/0.4)" }}>
               seu veículo protegido
@@ -76,7 +76,7 @@ const Process = () => {
 
                 {/* Text */}
                 <div className="relative z-10 flex-1 flex flex-col">
-                  <h3 className="font-display text-lg md:text-xl font-black text-white mb-3 uppercase tracking-wider">
+                  <h3 className="font-display text-base md:text-lg font-black text-white mb-3 uppercase tracking-wider">
                     {step.title}
                   </h3>
                   <p className="text-white/45 text-sm leading-relaxed font-light group-hover:text-white/60 transition-colors duration-300">

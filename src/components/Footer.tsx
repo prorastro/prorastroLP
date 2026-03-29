@@ -1,11 +1,10 @@
 import { Instagram, Facebook, Linkedin, Youtube, Mail, Phone, MapPin } from "lucide-react";
-import prorastroIcon from "@/assets/prorastro-icon.png";
+import { Link } from "react-router-dom";
+import prorastroFull from "@/assets/prorastro-full.png";
 
 const socialLinks = [
-  { icon: Instagram, href: "#", label: "Instagram" },
-  { icon: Facebook, href: "#", label: "Facebook" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Youtube, href: "#", label: "YouTube" },
+  { icon: Instagram, href: "https://www.instagram.com/prorastro_", label: "Instagram" },
+  { icon: Facebook, href: "https://www.facebook.com/profile.php?id=61578119433995", label: "Facebook" },
 ];
 
 const Footer = () => {
@@ -13,21 +12,18 @@ const Footer = () => {
     <footer id="contato" className="bg-[#040404] relative">
       <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
       <div className="container py-16">
-        <div className="grid md:grid-cols-4 gap-10 mb-12">
+        <div className="grid md:grid-cols-3 gap-16 mb-12 max-w-6xl mx-auto">
           {/* Brand */}
           <div className="md:col-span-1">
             <a
               href="/"
-              className="flex items-center gap-2.5 font-display text-xl font-bold text-foreground mb-4"
+              className="flex items-center mb-6"
             >
               <img
-                src={prorastroIcon}
+                src={prorastroFull}
                 alt="ProRastro"
-                className="h-8 w-8 object-contain"
+                className="h-10 md:h-12 w-auto object-contain"
               />
-              <span>
-                <span className="text-primary">Pro</span>Rastro
-              </span>
             </a>
             <p className="text-sm text-muted-foreground leading-relaxed mb-6">
               Tecnologia em localização. Líder em soluções de rastreamento
@@ -48,91 +44,70 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Company */}
-          <div>
-            <h4 className="font-display font-semibold text-foreground mb-5">
-              Empresa
-            </h4>
-            <ul className="space-y-3 text-sm text-muted-foreground">
-              <li>
-                <a href="#" className="hover:text-foreground transition-colors">
-                  Sobre Nós
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-foreground transition-colors">
-                  Carreiras
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-foreground transition-colors">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-foreground transition-colors">
-                  Parceiros
-                </a>
-              </li>
-            </ul>
-          </div>
-
           {/* Support */}
-          <div>
-            <h4 className="font-display font-semibold text-foreground mb-5">
+          <div className="md:col-span-1">
+            <h4 className="font-display font-black text-white mb-6 uppercase tracking-widest text-sm">
               Suporte
             </h4>
-            <ul className="space-y-3 text-sm text-muted-foreground">
+            <ul className="space-y-4 text-sm text-white/45">
               <li>
-                <a href="#" className="hover:text-foreground transition-colors">
+                <a href="https://wa.me/5591991837470" className="hover:text-primary transition-colors flex items-center gap-2" target="_blank" rel="noopener noreferrer">
                   Central de Ajuda
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-foreground transition-colors">
+                <a href="#faq" className="hover:text-primary transition-colors">
                   FAQ
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-foreground transition-colors">
+                <a href="https://wa.me/5591991837470" className="hover:text-primary transition-colors flex items-center gap-2" target="_blank" rel="noopener noreferrer">
                   Contato
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-foreground transition-colors">
+                <Link to="/privacidade" className="hover:text-primary transition-colors">
                   Política de Privacidade
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
 
           {/* Contact */}
-          <div>
-            <h4 className="font-display font-semibold text-foreground mb-5">
+          <div className="md:col-span-1">
+            <h4 className="font-display font-black text-white mb-6 uppercase tracking-widest text-sm">
               Contato
             </h4>
-            <ul className="space-y-3 text-sm text-muted-foreground">
-              <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4 text-primary shrink-0" />
+            <ul className="space-y-4 text-sm text-white/45">
+              <li className="flex items-center gap-3 group">
+                <div className="h-8 w-8 rounded-none bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
+                  <Mail className="h-4 w-4" />
+                </div>
                 <a
-                  href="mailto:contato@prorastro.com.br"
-                  className="hover:text-foreground transition-colors"
+                  href="mailto:tracker.prorastro@gmail.com"
+                  className="hover:text-white transition-colors"
                 >
-                  contato@prorastro.com.br
+                  tracker.prorastro@gmail.com
                 </a>
               </li>
-              <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-primary shrink-0" />
+              <li className="flex items-center gap-3 group">
+                <div className="h-8 w-8 rounded-none bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
+                  <Phone className="h-4 w-4" />
+                </div>
                 <a
-                  href="tel:+551140028922"
-                  className="hover:text-foreground transition-colors"
+                  href="https://wa.me/5591991837470"
+                  className="hover:text-white transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  (11) 4002-8922
+                  (91) 99183-7470
                 </a>
               </li>
-              <li className="flex items-start gap-2">
-                <MapPin className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                <span>São Paulo, SP — Brasil</span>
+              <li className="flex items-start gap-3 group">
+                <div className="h-8 w-8 rounded-none bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all mt-0.5">
+                  <MapPin className="h-4 w-4" />
+                </div>
+                <span className="group-hover:text-white transition-colors">Belém, PA — Brasil</span>
               </li>
             </ul>
           </div>
@@ -144,12 +119,12 @@ const Footer = () => {
             reservados.
           </span>
           <div className="flex gap-4">
-            <a href="#" className="hover:text-foreground transition-colors">
+            <Link to="/termos" className="hover:text-foreground transition-colors">
               Termos de Uso
-            </a>
-            <a href="#" className="hover:text-foreground transition-colors">
+            </Link>
+            <Link to="/privacidade" className="hover:text-foreground transition-colors">
               Privacidade
-            </a>
+            </Link>
           </div>
         </div>
       </div>

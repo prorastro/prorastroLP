@@ -1,7 +1,7 @@
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
-import prorastroIcon from "@/assets/prorastro-icon.png";
+import prorastroFull from "@/assets/prorastro-full.png";
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -17,20 +17,21 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-background/95 shadow-2xl shadow-black/50 backdrop-blur-xl"
-          : "bg-background/40 backdrop-blur-md"
+          ? "bg-background/95 shadow-2xl shadow-black/50 backdrop-blur-xl border-b border-white/5"
+          : "bg-background/80 backdrop-blur-xl border-b border-white/5"
       }`}
     >
       <div className="container flex h-16 items-center justify-between">
-        <a href="/" className="flex items-center gap-2.5 font-display text-2xl font-black tracking-tight text-white">
+        <a href="/" className="flex items-center overflow-hidden">
           <img
-            src={prorastroIcon}
+            src={prorastroFull}
             alt="ProRastro"
-            className="h-8 w-8 object-contain"
+            className={`h-12 md:h-14 w-auto object-contain transition-all duration-500 ease-in-out ${
+              scrolled
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 -translate-y-2 pointer-events-none"
+            }`}
           />
-          <span className="uppercase">
-            <span className="text-primary drop-shadow-[0_0_10px_rgba(255,0,0,0.4)]">Pro</span>Rastro
-          </span>
         </a>
 
         <nav className="hidden md:flex items-center gap-8">
@@ -52,12 +53,14 @@ const Header = () => {
           >
             Contato
           </a>
-          <Button
-            size="sm"
-            className="rounded-none font-display font-bold uppercase tracking-widest shadow-[0_0_20px_hsl(var(--primary)/0.3)] hover:shadow-[0_0_30px_hsl(var(--primary)/0.6)] transition-all hover:-translate-y-0.5"
-          >
-            Área do Cliente
-          </Button>
+          <a href="https://tracker.prorastro.com.br" target="_blank" rel="noopener noreferrer">
+            <Button
+              size="sm"
+              className="rounded-none font-display font-bold uppercase tracking-widest shadow-[0_0_20px_hsl(var(--primary)/0.3)] hover:shadow-[0_0_30px_hsl(var(--primary)/0.6)] transition-all hover:-translate-y-0.5"
+            >
+              Área do Cliente
+            </Button>
+          </a>
         </nav>
 
         <button
@@ -93,9 +96,11 @@ const Header = () => {
             >
               Contato
             </a>
-            <Button className="rounded-none font-display font-bold uppercase tracking-widest w-full mt-3">
-              Área do Cliente
-            </Button>
+            <a href="https://tracker.prorastro.com.br" target="_blank" rel="noopener noreferrer" className="mt-3">
+              <Button className="rounded-none font-display font-bold uppercase tracking-widest w-full">
+                Área do Cliente
+              </Button>
+            </a>
           </nav>
         </div>
       )}

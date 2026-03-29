@@ -5,10 +5,6 @@ import { useInView } from "@/hooks/use-in-view";
 
 const faqs = [
   {
-    question: "A instalação tem algum custo extra?",
-    answer: "Não. A instalação é 100% gratuita para todos os nossos planos. Nossos técnicos credenciados vão até a sua residência ou empresa realizar o serviço com segurança.",
-  },
-  {
     question: "Existe período mínimo de fidelidade?",
     answer: "Nenhum. Não trabalhamos com retenção forçada. Você é livre para cancelar sua assinatura mensalista a qualquer momento sem nenhum tipo de multa.",
   },
@@ -22,7 +18,7 @@ const faqs = [
   },
   {
     question: "Quanto tempo depois de fechar demora a instalação?",
-    answer: "As instalações na região principal costumam ser resolvidas em até 48 horas úteis após a aprovação do plano. O tempo do serviço no carro dura cerca de 1 hora.",
+    answer: "As instalações na região principal costumam ser resolvidas em até 24 horas úteis após a aprovação do plano. O tempo de instalação no carro dura cerca de 1 hora.",
   }
 ];
 
@@ -39,7 +35,7 @@ const FAQ = () => {
           <p className="text-primary font-display font-black text-sm uppercase tracking-[0.3em] mb-4 flex items-center justify-center gap-2">
             <MessageSquare className="h-4 w-4" /> Dúvidas Frequentes
           </p>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 uppercase tracking-tight">
+          <h2 className="font-display text-2xl md:text-3xl lg:text-5xl font-black text-white mb-6 uppercase tracking-tight">
             Perguntas & Respostas
           </h2>
           <p className="text-white/50 text-lg font-light">
@@ -67,7 +63,7 @@ const FAQ = () => {
                   className="w-full flex items-center justify-between p-6 md:p-8 text-left focus:outline-none"
                 >
                   <span className={cn(
-                    "font-display md:text-lg font-black transition-colors uppercase tracking-[0.15em]",
+                    "font-display text-sm md:text-base font-black transition-colors uppercase tracking-[0.1em]",
                     isOpen ? "text-primary" : "text-white/70 hover:text-white"
                   )}>
                     {faq.question}
