@@ -24,5 +24,23 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+
+    <!-- Chatwoot -->
+    <script>
+      window.chatwootSettings = {"position":"right","type":"standard","launcherTitle":""};
+      (function(d,t) {
+        var BASE_URL="https://chatwoot.santzap.com.br";
+        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=BASE_URL+"/packs/js/sdk.js";
+        g.async = true;
+        s.parentNode.insertBefore(g,s);
+        g.onload=function(){
+          window.chatwootSDK.run({
+            websiteToken: 'L1DNjsJ9RhBdcQHyrhjg2wZy',
+            baseUrl: BASE_URL
+          })
+        }
+      })(document,"script");
+    </script>
   </body>
 </html>

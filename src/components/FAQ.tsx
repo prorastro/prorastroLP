@@ -63,8 +63,8 @@ const FAQ = () => {
                   className="w-full flex items-center justify-between p-6 md:p-8 text-left focus:outline-none"
                 >
                   <span className={cn(
-                    "font-display text-sm md:text-base font-black transition-colors uppercase tracking-[0.1em]",
-                    isOpen ? "text-primary" : "text-white/70 hover:text-white"
+                    "font-sans text-sm md:text-base font-light transition-colors",
+                    isOpen ? "text-white" : "text-white/60 hover:text-white"
                   )}>
                     {faq.question}
                   </span>
@@ -82,7 +82,7 @@ const FAQ = () => {
                   )}
                 >
                   <div className="overflow-hidden px-6 md:px-8">
-                    <p className="text-white/50 font-light leading-relaxed">
+                    <p className="text-white/50 font-sans font-light leading-relaxed">
                       {faq.answer}
                     </p>
                   </div>

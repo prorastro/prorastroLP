@@ -235,16 +235,7 @@ const Pricing = () => {
           ))}
         </div>
 
-        {/* Footer labels */}
-        <div className="mt-16">
-          <p className="text-center text-sm text-white/40 font-light uppercase tracking-widest flex items-center justify-center gap-3 flex-wrap">
-            <span>Instalação gratuita</span>
-            <span className="w-1 h-1 rounded-full bg-white/20" />
-            <span>Zero fidelidade</span>
-            <span className="w-1 h-1 rounded-full bg-white/20" />
-            <span>Cancele a qualquer momento</span>
-          </p>
-        </div>
+
       </div>
     </section>
   );

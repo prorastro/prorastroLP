@@ -60,6 +60,7 @@ const Hero = () => {
           opacity: videoVisible ? 1 : 0,
           transitionDuration: "1800ms",
           transitionTimingFunction: "ease-in-out",
+          willChange: "opacity",
         }}
       >
         <video
@@ -101,7 +102,7 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="container relative z-10 py-32 md:py-48 flex flex-col justify-center min-h-[80vh]">
+      <div className="container relative z-10 pt-24 pb-16 md:py-48 flex flex-col justify-center min-h-screen">
         <div className="max-w-5xl space-y-8 md:space-y-10">
                   <div className="flex flex-col md:flex-row gap-8 lg:gap-12 items-start">
           {/* Logo Column */}
@@ -109,6 +110,8 @@ const Hero = () => {
             <img 
               src={logoMain} 
               alt="ProRastro Logo" 
+              loading="eager"
+              decoding="async"
               className="h-20 md:h-28 lg:h-32 w-auto object-contain filter drop-shadow-[0_0_30px_hsl(var(--primary)/0.6)] mt-2"
             />
           </div>
@@ -154,11 +157,11 @@ const Hero = () => {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-stretch gap-3 pt-4 max-w-sm md:max-w-none" style={{ animationDelay: "300ms" }}>
+            <div className="flex flex-col sm:flex-row items-stretch gap-3 pt-4 w-full md:max-w-none" style={{ animationDelay: "300ms" }}>
               <a href="https://wa.me/5591991837470" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
                 <Button
                   size="lg"
-                  className="w-full sm:w-auto text-[11px] md:text-sm px-6 md:px-12 py-5 md:py-8 rounded-none font-display font-black uppercase tracking-[0.05em] md:tracking-[0.2em] transition-all hover:-translate-y-1 active:scale-95 bg-primary text-white hover:bg-primary/90 shadow-[0_10px_40px_hsl(var(--primary)/0.4)] relative overflow-hidden group border-none whitespace-nowrap"
+                  className="w-full sm:w-auto text-xs sm:text-[11px] md:text-sm px-4 md:px-12 py-5 md:py-8 rounded-none font-display font-black uppercase tracking-[0.08em] md:tracking-[0.2em] transition-all hover:-translate-y-1 active:scale-95 bg-primary text-white hover:bg-primary/90 shadow-[0_10px_40px_hsl(var(--primary)/0.4)] relative overflow-hidden group border-none"
                 >
                   <span className="relative z-10">Falar com um atendente</span>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -166,7 +169,7 @@ const Hero = () => {
               </a>
               <Button 
                 size="lg" 
-                className="w-full sm:w-auto text-[11px] md:text-sm px-6 md:px-12 py-5 md:py-8 rounded-none font-display font-black uppercase tracking-[0.05em] md:tracking-[0.2em] bg-white/5 hover:bg-white/10 border border-white/20 text-white backdrop-blur-xl transition-all hover:-translate-y-1 active:scale-95 shadow-[0_10px_40px_rgba(0,0,0,0.5)] whitespace-nowrap"
+                className="w-full sm:w-auto text-xs sm:text-[11px] md:text-sm px-4 md:px-12 py-5 md:py-8 rounded-none font-display font-black uppercase tracking-[0.08em] md:tracking-[0.2em] bg-white/5 hover:bg-white/10 border border-white/20 text-white backdrop-blur-xl transition-all hover:-translate-y-1 active:scale-95 shadow-[0_10px_40px_rgba(0,0,0,0.5)]"
               >
                 Ver Planos
               </Button>
