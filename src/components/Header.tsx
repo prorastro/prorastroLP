@@ -53,6 +53,14 @@ const Header = () => {
           >
             Contato
           </a>
+          <a
+            href="https://wa.me/5591991837470?text=Ol%C3%A1,%20gostaria%20da%20segunda%20via%20da%20minha%20fatura."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
+          >
+            2ª Via Fatura
+          </a>
           <a href="https://tracker.prorastro.com.br" target="_blank" rel="noopener noreferrer">
             <Button
               size="sm"
@@ -95,6 +103,15 @@ const Header = () => {
               onClick={() => setMobileOpen(false)}
             >
               Contato
+            </a>
+            <a
+              href="https://wa.me/5591991837470?text=Ol%C3%A1,%20gostaria%20da%20segunda%20via%20da%20minha%20fatura."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-semibold text-primary hover:text-primary/80 transition-colors py-2 px-3 rounded-lg hover:bg-secondary/50"
+              onClick={() => setMobileOpen(false)}
+            >
+              2ª Via Fatura
             </a>
             <a href="https://tracker.prorastro.com.br" target="_blank" rel="noopener noreferrer" className="mt-3">
               <Button className="rounded-none font-display font-bold uppercase tracking-widest w-full">
