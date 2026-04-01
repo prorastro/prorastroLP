@@ -5,8 +5,16 @@ import { useInView } from "@/hooks/use-in-view";
 
 const faqs = [
   {
-    question: "Existe período mínimo de fidelidade?",
-    answer: "Nenhum. Não trabalhamos com retenção forçada. Você é livre para cancelar sua assinatura mensalista a qualquer momento sem nenhum tipo de multa.",
+    question: "Consigo ver meu veículo em tempo real?",
+    answer: "Sim! Você pode visualizar a localização do seu veículo em tempo real através do aplicativo ou plataforma web, com atualizações constantes.",
+  },
+  {
+    question: "Posso usar em mais de um veículo?",
+    answer: "Sim! Você pode gerenciar vários veículos na mesma conta.",
+  },
+  {
+    question: "Como contratar o serviço?",
+    answer: "É simples! Basta clicar no botão falar com um atendente e falar com nossa equipe para ativar seu rastreamento rapidamente.",
   },
   {
     question: "Posso realizar o bloqueio do veículo sozinho?",
