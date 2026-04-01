@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { createPortal } from "react-dom";
 import { Check, ShieldCheck } from "lucide-react";
 import { useInView } from "@/hooks/use-in-view";
 
@@ -106,7 +107,7 @@ const LeadModal = ({ plan, onClose }: LeadModalProps) => {
     boxSizing: "border-box",
   };
 
-  return (
+  return createPortal(
     <div
       style={{
         position: "fixed",
@@ -234,7 +235,8 @@ const LeadModal = ({ plan, onClose }: LeadModalProps) => {
           </button>
         </form>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
 
