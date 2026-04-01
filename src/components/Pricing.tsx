@@ -14,6 +14,7 @@ const plans = [
     ],
     highlighted: false,
     note: null,
+    checkoutUrl: "https://www.asaas.com/c/rkb9mvhoc6cv39o1",
   },
   {
     name: "Plus",
@@ -30,6 +31,7 @@ const plans = [
     ],
     highlighted: true,
     note: null,
+    checkoutUrl: "https://www.asaas.com/c/0mkeumed1nci4mjf",
   },
   {
     name: "Premium",
@@ -43,6 +45,7 @@ const plans = [
     ],
     highlighted: false,
     note: "Adesão única: R$ 99,00",
+    checkoutUrl: "https://www.asaas.com/c/r3ejuqh6jdq4x1a0",
   },
 ];
 
@@ -202,7 +205,7 @@ const Pricing = () => {
               )}
 
               {/* CTA Button */}
-              <a href="https://wa.me/5591991837470" target="_blank" rel="noopener noreferrer">
+              <a href={plan.checkoutUrl} target="_blank" rel="noopener noreferrer">
                 <button
                   style={{
                     width: "100%",
@@ -228,7 +231,7 @@ const Pricing = () => {
                     (e.currentTarget as HTMLButtonElement).style.transform = "translateY(0)";
                   }}
                 >
-                  Falar com um atendente
+                  Assinar agora
                 </button>
               </a>
             </div>
