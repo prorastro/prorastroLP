@@ -5,9 +5,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const { name, whatsapp, email, plan } = req.body;
+  const { name, whatsapp, plan } = req.body;
 
-  if (!name || !whatsapp || !email || !plan) {
+  if (!name || !whatsapp || !plan) {
     return res.status(400).json({ error: "Campos obrigatórios ausentes" });
   }
 
@@ -19,8 +19,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const message =
     `🚀 *Novo Lead - Plano ${plan}*\n\n` +
     `👤 *Nome:* ${name}\n` +
-    `📱 *WhatsApp:* ${whatsapp}\n` +
-    `📧 *E-mail:* ${email}`;
+    `📱 *WhatsApp:* ${whatsapp}`;
 
   const response = await fetch(`${evolutionUrl}/message/sendText/${instance}`, {
     method: "POST",

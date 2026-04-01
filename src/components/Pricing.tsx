@@ -61,7 +61,6 @@ interface LeadModalProps {
 const LeadModal = ({ plan, onClose }: LeadModalProps) => {
   const [name, setName] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
-  const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -81,7 +80,7 @@ const LeadModal = ({ plan, onClose }: LeadModalProps) => {
       const res = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, whatsapp, email, plan: plan.name }),
+        body: JSON.stringify({ name, whatsapp, plan: plan.name }),
       });
 
       if (!res.ok) throw new Error("Erro ao enviar");
@@ -201,15 +200,6 @@ const LeadModal = ({ plan, onClose }: LeadModalProps) => {
             onChange={(e) => setWhatsapp(formatWhatsapp(e.target.value))}
             required
           />
-          <input
-            style={inputStyle}
-            type="email"
-            placeholder="Seu e-mail"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-
           {error && (
             <p style={{ color: "hsl(var(--primary))", fontSize: "12px", textAlign: "center" }}>{error}</p>
           )}
