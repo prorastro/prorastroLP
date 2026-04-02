@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { createPortal } from "react-dom";
 import { Check, ShieldCheck } from "lucide-react";
-import { useInView } from "@/hooks/use-in-view";
 
 const plans = [
   {
@@ -234,7 +233,6 @@ const LeadModal = ({ plan, onClose }: LeadModalProps) => {
 };
 
 const Pricing = () => {
-  const { ref, inView } = useInView();
   const [selectedPlan, setSelectedPlan] = useState<Plan | null>(null);
 
   return (
@@ -271,15 +269,12 @@ const Pricing = () => {
           </div>
 
           {/* Cards */}
-          <div ref={ref} className="grid lg:grid-cols-3 gap-6 max-w-[1100px] mx-auto px-4 md:px-0">
+          <div className="grid lg:grid-cols-3 gap-6 max-w-[1100px] mx-auto px-4 md:px-0">
             {plans.map((plan, index) => (
               <div
                 key={plan.name}
                 className={plan.highlighted ? "group transition-all duration-1000 z-20 hover:z-30 hover:-translate-y-4 hover:shadow-[0_40px_80px_rgba(235,19,19,0.3)]" : "group transition-all duration-1000 z-10 hover:z-20 hover:-translate-y-4 hover:shadow-[0_40px_80px_rgba(235,19,19,0.15)]"}
                 style={{
-                  opacity: inView ? 1 : 0,
-                  transform: inView ? "translateY(0)" : "translateY(40px)",
-                  transitionDelay: `${index * 150}ms`,
                   background: plan.highlighted ? "#0E0E0E" : "#080808",
                   borderTop: plan.highlighted ? "4px solid hsl(var(--primary))" : "1px solid rgba(255,255,255,0.05)",
                   boxShadow: plan.highlighted ? "0 30px 100px rgba(0,0,0,0.6)" : "none",

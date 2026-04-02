@@ -32,7 +32,7 @@ const Index = () => {
             <div className="absolute inset-0 z-[-1] bg-[#040404]" />
             
             {/* Image Wrapper with Seamless Fade */}
-            <div className="absolute top-0 left-0 w-full h-[750px] sm:h-[900px] md:h-full z-[-1]">
+            <div className="absolute top-0 left-0 w-full h-[750px] sm:h-[900px] md:h-full z-[-1] hidden md:block">
               <img 
                 src="/cta_background_car.png" 
                 alt="Car background"

@@ -1,4 +1,4 @@
-import { useInView } from "@/hooks/use-in-view";
+// Removed useInView
 import { cn } from "@/lib/utils";
 import { MousePointerClick, Wrench, Smartphone } from "lucide-react";
 
@@ -24,7 +24,6 @@ const steps = [
 ];
 
 const Process = () => {
-  const { ref, inView } = useInView();
 
   return (
     <section id="processo" className="py-32 md:py-40 bg-[#060606] relative overflow-hidden">
@@ -48,7 +47,7 @@ const Process = () => {
         </div>
 
         {/* Steps */}
-        <div ref={ref} className="grid md:grid-cols-3 gap-6 md:gap-8 relative">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8 relative">
 
           {steps.map((step, i) => (
             <div

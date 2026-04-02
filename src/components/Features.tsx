@@ -1,5 +1,5 @@
 import { MapPin, Shield, Smartphone, Bell, Route, BarChart3 } from "lucide-react";
-import { useInView } from "@/hooks/use-in-view";
+// Removed useInView
 import { cn } from "@/lib/utils";
 
 const features = [
@@ -42,7 +42,6 @@ const features = [
 ];
 
 const Features = () => {
-  const { ref, inView } = useInView();
 
   return (
     <section id="recursos" className="py-32 bg-[#040404] relative overflow-hidden">
@@ -73,7 +72,7 @@ const Features = () => {
         </div>
 
         {/* Tactical Bento Box Grid */}
-        <div ref={ref} className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-3 gap-4 md:gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-3 gap-4 md:gap-5">
           
           {/* Card 1: Rastreamento em Tempo Real - LARGE WIDTH */}
           <div className="group relative rounded-none bg-[#0D0D0D] border border-white/5 p-8 md:p-10 transition-all duration-500 hover:bg-[#111111] md:col-span-2 overflow-hidden">

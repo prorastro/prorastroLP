@@ -1,8 +1,6 @@
 import { Cpu, Wifi, MapPin, Zap } from "lucide-react";
-import { useInView } from "@/hooks/use-in-view";
 
 const Hardware = () => {
-  const { ref, inView } = useInView();
 
   return (
     <section className="py-24 bg-[#040404] relative overflow-hidden">
@@ -24,7 +22,7 @@ const Hardware = () => {
       {/* Ambient Radial Glows - CENTRALIZADOS */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[1000px] h-[600px] md:h-[1000px] bg-primary/5 blur-[150px] pointer-events-none rounded-full" />
       
-      <div ref={ref} className={`container relative z-10 max-w-[1240px] mx-auto px-4 md:px-8 transition-all duration-1000 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+      <div className="container relative z-10 max-w-[1240px] mx-auto px-4 md:px-8">
         
         {/* HEADER */}
         <div className="mb-16 border-l-[3px] border-primary pl-6 max-w-4xl">

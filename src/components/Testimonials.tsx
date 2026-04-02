@@ -1,4 +1,4 @@
-import { useInView } from "@/hooks/use-in-view";
+// Removed useInView
 import { Star, Shield, Car, Truck, MapPin, Zap } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useEffect, useRef } from "react";
@@ -27,7 +27,6 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
-  const { ref: inViewRef, inView } = useInView();
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -85,17 +84,12 @@ const Testimonials = () => {
         <div className="absolute top-0 right-0 bottom-0 w-8 md:w-32 bg-gradient-to-l from-[#040404] to-transparent z-20 pointer-events-none" />
 
         <div 
-          ref={inViewRef} 
           className="carousel-track flex items-stretch overflow-x-auto gap-6 md:gap-8 pb-12 pt-4 px-6 md:px-16 lg:px-32 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
         >
           {testimonials.map((item, i) => (
             <div
               key={i}
-              className={cn(
-                "group relative shrink-0 w-[85vw] sm:w-[400px] md:w-[450px] bg-[#0D0D0D] p-8 lg:p-10 flex flex-col border border-white/[0.03] transition-all duration-700 shadow-[0_10px_30px_rgba(0,0,0,0.5)] z-10 hover:z-20 hover:bg-[#121212] hover:border-primary/30 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(235,19,19,0.15)]",
-                inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-              )}
-              style={{ transitionDelay: `${(i % 5) * 100}ms` }}
+              className="group relative shrink-0 w-[85vw] sm:w-[400px] md:w-[450px] bg-[#0D0D0D] p-8 lg:p-10 flex flex-col border border-white/[0.03] transition-all duration-700 shadow-[0_10px_30px_rgba(0,0,0,0.5)] z-10 hover:z-20 hover:bg-[#121212] hover:border-primary/30 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(235,19,19,0.15)]"
             >
               {/* Corner Brackets */}
               <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-white/20 transition-colors group-hover:border-primary/50" />
