@@ -167,7 +167,7 @@ const Hardware = () => {
              </div>
 
              {/* TEXTO DE ESPECIFICAÇÕES NO ESPAÇO VAZIO (Abaixo da Imagem) */}
-             <div className="mt-auto pt-8 border-t border-white/5 relative bg-gradient-to-t from-black to-transparent">
+             <div className="mt-auto pt-8 border-t border-white/5 relative">
                  <div className="mb-10 flex justify-between items-end">
                      <div>
                         <h3 className="font-mono text-white/40 text-[9px] tracking-[0.2em] uppercase mb-2">Ficha Técnica Oficial</h3>
