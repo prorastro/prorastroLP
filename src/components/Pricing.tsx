@@ -75,6 +75,9 @@ const LeadModal = ({ plan, onClose }: LeadModalProps) => {
     setError("");
     setLoading(true);
 
+    // Open window immediately on user gesture to avoid Safari iOS popup blocker
+    const paymentWindow = window.open("", "_blank", "noopener,noreferrer");
+
     try {
       const res = await fetch("/api/lead", {
         method: "POST",
@@ -84,9 +87,14 @@ const LeadModal = ({ plan, onClose }: LeadModalProps) => {
 
       if (!res.ok) throw new Error("Erro ao enviar");
 
-      window.open(plan.checkoutUrl, "_blank", "noopener,noreferrer");
+      if (paymentWindow) {
+        paymentWindow.location.href = plan.checkoutUrl;
+      } else {
+        window.location.href = plan.checkoutUrl;
+      }
       onClose();
     } catch {
+      if (paymentWindow) paymentWindow.close();
       setError("Ocorreu um erro. Tente novamente.");
     } finally {
       setLoading(false);
