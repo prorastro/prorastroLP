@@ -89,9 +89,8 @@ const Testimonials = () => {
           {testimonials.map((item, i) => (
             <div
               key={i}
-              className="group relative shrink-0 w-[85vw] sm:w-[400px] md:w-[450px] bg-[#0D0D0D] p-8 lg:p-10 flex flex-col border border-white/[0.03] transition-all duration-700 shadow-[0_10px_30px_rgba(0,0,0,0.5)] z-10 hover:z-20 hover:bg-[#121212] hover:border-primary/30 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(235,19,19,0.15)]"
+              className="group relative shrink-0 w-[78vw] sm:w-[400px] md:w-[450px] bg-[#0D0D0D] p-6 sm:p-8 lg:p-10 flex flex-col border border-white/[0.03] transition-all duration-700 shadow-[0_10px_30px_rgba(0,0,0,0.5)] z-10 hover:z-20 hover:bg-[#121212] hover:border-primary/30 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(235,19,19,0.15)]"
             >
-              {/* Corner Brackets */}
               <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-white/20 transition-colors group-hover:border-primary/50" />
               <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-white/20 transition-colors group-hover:border-primary/50" />
 
