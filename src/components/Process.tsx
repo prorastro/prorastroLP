@@ -29,9 +29,8 @@ const Process = () => {
   return (
     <section id="processo" className="py-32 md:py-40 bg-[#060606] relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
-      {/* Background flares */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-primary/[0.04] blur-[120px] pointer-events-none rounded-full" />
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/[0.06] blur-[100px] pointer-events-none rounded-full" />
+      {/* Background flares - CENTRALIZADOS */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[1000px] h-[600px] md:h-[1000px] bg-primary/[0.05] blur-[150px] pointer-events-none rounded-full" />
 
       <div className="container relative z-10 max-w-6xl mx-auto">
 

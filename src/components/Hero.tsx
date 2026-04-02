@@ -133,27 +133,9 @@ const Hero = () => {
                   Rastreamento em tempo real com cobertura total. Precisão absoluta para o seu 
                   patrimônio através de módulos de comunicação de grau industrial.
                 </p>
-                
-                {/* Telemetry HUD */}
-                <div className="mt-8 grid grid-cols-2 md:flex md:flex-wrap gap-x-8 gap-y-6 font-mono text-[9px] md:text-[10px] tracking-[0.2em] text-primary/80 uppercase">
-                  <div className="space-y-1">
-                    <div className="text-white/40">Status</div>
-                    <div className="flex items-center gap-2">
-                      <span className="relative flex h-2 w-2">
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                      </span>
-                      <span className="text-white/90">LIVE_TRACKING</span>
-                    </div>
-                  </div>
-                  <div className="space-y-1">
-                    <div className="text-white/40">Uptime</div>
-                    <div className="text-white/90">99.98%_AVAIL</div>
-                  </div>
-                  <div className="space-y-1">
-                    <div className="text-white/40">Latency</div>
-                    <div className="text-white/90">&lt; 50MS_RESPONSE</div>
-                  </div>
-                </div>
+                <p className="mt-6 text-sm md:text-lg text-white/50 max-w-xl leading-relaxed font-light" style={{ textShadow: "0 2px 10px rgba(0,0,0,0.8)" }}>
+                  Deixe a insegurança para trás. <strong>Bloqueie o motor do seu veículo remotamente</strong> em segundos pelo próprio celular e conte com nosso suporte e monitoramento 24h para agir rápido em qualquer emergência.
+                </p>
               </div>
             </div>
 
@@ -167,12 +149,14 @@ const Hero = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Button>
               </a>
-              <Button 
-                size="lg" 
-                className="w-full sm:w-auto text-xs sm:text-[11px] md:text-sm px-4 md:px-12 py-5 md:py-8 rounded-none font-display font-black uppercase tracking-[0.08em] md:tracking-[0.2em] bg-white/5 hover:bg-white/10 border border-white/20 text-white backdrop-blur-xl transition-all hover:-translate-y-1 active:scale-95 shadow-[0_10px_40px_rgba(0,0,0,0.5)]"
-              >
-                Ver Planos
-              </Button>
+              <a href="#planos" className="w-full sm:w-auto">
+                <Button 
+                  size="lg" 
+                  className="w-full sm:w-auto text-xs sm:text-[11px] md:text-sm px-4 md:px-12 py-5 md:py-8 rounded-none font-display font-black uppercase tracking-[0.08em] md:tracking-[0.2em] bg-white/5 hover:bg-white/10 border border-white/20 text-white backdrop-blur-xl transition-all hover:-translate-y-1 active:scale-95 shadow-[0_10px_40px_rgba(0,0,0,0.5)]"
+                >
+                  Ver Planos
+                </Button>
+              </a>
             </div>
           </div>
         </div>

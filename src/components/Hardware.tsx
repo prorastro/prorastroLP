@@ -2,84 +2,196 @@ import { Cpu, Wifi, MapPin, Zap } from "lucide-react";
 
 const Hardware = () => {
   return (
-    <section className="py-32 relative bg-[#040404] overflow-hidden">
+    <section className="py-24 bg-[#040404] relative overflow-hidden">
+      
+      {/* BACKGROUND EFFECTS */}
+      {/* Top Border Glow */}
       <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
       
-      
-      {/* AI Generated Circuit Board Background */}
-      <img 
-        src="/hardware-bg.png" 
-        alt="Circuit Texture" 
-        className="absolute inset-0 w-full h-full object-cover opacity-20 pointer-events-none mix-blend-screen"
+      {/* Tactical Grid Overlay - EQUILIBRADO */}
+      <div 
+        className="absolute inset-0 pointer-events-none opacity-[0.05] mix-blend-screen"
+        style={{
+          backgroundImage: "linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)",
+          backgroundSize: "40px 40px",
+          backgroundPosition: "center center"
+        }}
       />
       
-      {/* Gradients to fade edges smoothly into black */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-transparent to-[#0a0a0a] pointer-events-none" />
-      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black to-transparent pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.8)_100%)] pointer-events-none z-0" />
-
-
-      <div className="container relative z-10 max-w-5xl mx-auto">
-        <div className="text-center mb-20 relative">
-          {/* Subtle dark backing for header text */}
-          <div className="absolute -inset-10 bg-black/40 blur-3xl rounded-full -z-10" />
-          
-          <p className="text-primary font-display font-bold uppercase tracking-[0.2em] mb-4 flex items-center justify-center gap-2">
-            <Cpu className="h-5 w-5" />
-            <span>Infraestrutura</span>
+      {/* Ambient Radial Glows - CENTRALIZADOS */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[1000px] h-[600px] md:h-[1000px] bg-primary/5 blur-[150px] pointer-events-none rounded-full" />
+      
+      <div className="container relative z-10 max-w-[1240px] mx-auto px-4 md:px-8">
+        
+        {/* HEADER */}
+        <div className="mb-16 border-l-[3px] border-primary pl-6 max-w-4xl">
+          <p className="text-white/40 font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] mb-4">
+            Tracker Specification // J16 4G SIMCOM
           </p>
-          <h2 className="font-display text-xl md:text-3xl lg:text-5xl font-black text-white leading-[0.9] uppercase tracking-tighter mb-8">
-            Hardware de <span className="text-primary">Nível Militar</span>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-[64px] font-black text-white/90 leading-[1.1] uppercase tracking-tighter mb-8">
+            Hardware <span className="text-white">de Nível Militar</span>
           </h2>
-          <p className="text-lg md:text-xl text-white/90 leading-relaxed font-light max-w-2xl mx-auto italic border-l-2 border-primary/40 pl-6 bg-black/20 backdrop-blur-sm py-4">
-            Equipado com o módulo <strong className="text-primary font-bold">EG915N-LA</strong>. 
-            Uma blindagem de dados capaz de processar telemetria em microssegundos. Inteligência bruta operando em silêncio.
-          </p>
+          <div className="text-white/50 leading-relaxed font-light text-base md:text-lg space-y-6">
+            <p className="text-primary font-medium">Equipado internamente com o cérebro de processamento ultra veloz SIMCOM A7670SA Cat-1.</p>
+            <p className="lg:pr-24">
+              O rastreador automotivo J16 4G redefine as regras da segurança veicular. Em vez de utilizar placas obsoletas, ele é impulsionado pelo módulo de transmissão bruta da <strong>Simcom</strong>, entregando telemetria em microssegundos. É hardware de grau militar focado não em rastrear o seu veículo, mas em blindá-lo com dados.
+            </p>
+          </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 pt-4">
-          <div className="p-6 md:p-10 rounded-none bg-[#0D0D0D]/90 backdrop-blur-md border border-white/5 hover:border-primary/30 transition-all duration-500 group relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-4 font-mono text-[10px] text-white/20 group-hover:text-primary transition-colors uppercase">DATA_LINK</div>
-            <div className="w-16 h-16 rounded-none bg-black border border-white/10 flex items-center justify-center mb-10 group-hover:bg-primary group-hover:border-primary transition-all duration-300">
-              <Wifi className="h-8 w-8 text-primary group-hover:text-white transition-colors" />
+        {/* 2 COLUMNS */}
+        <div className="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-16 items-start">
+          
+          {/* LADO ESQUERDO: CARDS GRID (No desktop esquerdo, no mobile embaixo) */}
+          <div className="grid sm:grid-cols-2 gap-4 lg:gap-5 order-2 lg:order-1">
+            
+            {/* CARD 1 */}
+            <div className="bg-[#0D0D0D] p-8 lg:p-10 relative flex flex-col justify-start h-full group transition-colors hover:bg-[#111111]">
+              <div className="mb-8 flex">
+                <div className="w-10 h-10 bg-white/[0.02] flex items-center justify-center border border-white/5">
+                  <Wifi className="h-5 w-5 text-primary" />
+                </div>
+              </div>
+              <h3 className="text-[15px] font-display font-black text-white/90 mb-4 uppercase tracking-widest leading-snug">
+                Conectividade<br/>Simcom A7670SA
+              </h3>
+              <p className="text-white/40 leading-relaxed font-light text-[13px] mb-12 pr-4">
+                O coração vital do tracker. Banda de dados LTE 4G que zera atrasos com o servidor, e fallback inteligente para sub-redes 2G em túneis profundos ou rodovias isoladas.
+              </p>
+              
+              {/* Bottom Line Bar */}
+              <div className="w-full h-[3px] bg-white/5 mt-auto relative">
+                <div className="absolute left-0 top-0 h-full w-12 bg-primary group-hover:w-[100%] transition-all duration-700 ease-out" />
+              </div>
             </div>
-            <h3 className="text-lg md:text-2xl font-display font-black text-white mb-4 uppercase tracking-wider">Conectividade Crítica</h3>
-            <p className="text-white/70 leading-relaxed font-light text-sm group-hover:text-white transition-colors">
-              Link ininterrupto via chips M2M multioperadoras. Nossa rede global seleciona dinamicamente a torre com melhor SNR para garantir transmissão constante.
-            </p>
+
+            {/* CARD 2 */}
+            <div className="bg-[#0D0D0D] p-8 lg:p-10 relative flex flex-col justify-start h-full group transition-colors hover:bg-[#111111]">
+              <div className="mb-8 flex">
+                <div className="w-10 h-10 bg-white/[0.02] flex items-center justify-center border border-white/5">
+                  <Zap className="h-5 w-5 text-primary" />
+                </div>
+              </div>
+              <h3 className="text-[15px] font-display font-black text-white/90 mb-4 uppercase tracking-widest leading-snug">
+                Bloqueio J16<br/>Extremo
+              </h3>
+              <p className="text-white/40 leading-relaxed font-light text-[13px] mb-12 pr-4">
+                Circuito de desarme atrelado aos comandos vitais. A ordem transmitida via módulo Simcom imobiliza o corte de combustível em questão de milissegundos remotamente.
+              </p>
+              
+              {/* Bottom Line Bar */}
+              <div className="w-full h-[3px] bg-white/5 mt-auto relative">
+                <div className="absolute left-0 top-0 h-full w-12 bg-primary group-hover:w-[100%] transition-all duration-700 ease-out" />
+              </div>
+            </div>
+
+            {/* CARD 3 */}
+            <div className="bg-[#0D0D0D] p-8 lg:p-10 relative flex flex-col justify-start h-full group transition-colors hover:bg-[#111111]">
+              <div className="mb-8 flex">
+                <div className="w-10 h-10 bg-white/[0.02] flex items-center justify-center border border-white/5">
+                  <MapPin className="h-5 w-5 text-primary" />
+                </div>
+              </div>
+              <h3 className="text-[15px] font-display font-black text-white/90 mb-4 uppercase tracking-widest leading-snug">
+                GLONASS +<br/>GPS J16 4G
+              </h3>
+              <p className="text-white/40 leading-relaxed font-light text-[13px] mb-12 pr-4">
+                Antena interna lendo órbitas em processamento nativo duplo. O hardware obtém a Fixação Quente (TTFF) e a margem brutal de erro de apenas {`<`}10m em exatos 2 segundos.
+              </p>
+              
+              {/* Bottom Line Bar */}
+              <div className="w-full h-[3px] bg-white/5 mt-auto relative">
+                <div className="absolute left-0 top-0 h-full w-12 bg-primary group-hover:w-[100%] transition-all duration-700 ease-out" />
+              </div>
+            </div>
+
+            {/* CARD 4 */}
+            <div className="bg-[#0D0D0D] p-8 lg:p-10 relative flex flex-col justify-start h-full group transition-colors hover:bg-[#111111]">
+              <div className="mb-8 flex">
+                <div className="w-10 h-10 bg-white/[0.02] flex items-center justify-center border border-white/5">
+                  <Cpu className="h-5 w-5 text-primary" />
+                </div>
+              </div>
+              <h3 className="text-[15px] font-display font-black text-white/90 mb-4 uppercase tracking-widest leading-snug">
+                Célula Blindada<br/>Integrada
+              </h3>
+              <p className="text-white/40 leading-relaxed font-light text-[13px] mb-12 pr-4">
+                Se os fios da bateria do veículo sofrerem sabotagem, a CPU detecta via ACC e ativa sua célula secundária de 140mAh, disparando sinais ininterruptos de violação pelo painel.
+              </p>
+              
+              {/* Bottom Line Bar */}
+              <div className="w-full h-[3px] bg-white/5 mt-auto relative">
+                <div className="absolute left-0 top-0 h-full w-12 bg-primary group-hover:w-[100%] transition-all duration-700 ease-out" />
+              </div>
+            </div>
+
           </div>
 
-          <div className="p-6 md:p-10 rounded-none bg-[#0D0D0D]/90 backdrop-blur-md border border-white/5 hover:border-primary/30 transition-all duration-500 group relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-4 font-mono text-[10px] text-white/20 group-hover:text-primary transition-colors uppercase">SHUT_DOWN</div>
-            <div className="w-16 h-16 rounded-none bg-black border border-white/10 flex items-center justify-center mb-10 group-hover:bg-primary group-hover:border-primary transition-all duration-300">
-              <Zap className="h-8 w-8 text-primary group-hover:text-white transition-colors" />
-            </div>
-            <h3 className="text-lg md:text-2xl font-display font-black text-white mb-4 uppercase tracking-wider">Interceptação Remota</h3>
-            <p className="text-white/70 leading-relaxed font-light text-sm group-hover:text-white transition-colors">
-              Comando de bloqueio via relé de estado sólido. A interrupção de sistemas críticos ocorre com precisão cirúrgica em menos de 1 segundo após o comando.
-            </p>
-          </div>
+          {/* LADO DIREITO: IMAGE FRAME & SPECS */}
+          <div className="relative mt-8 lg:-ml-4 order-1 lg:order-2 flex flex-col justify-start">
+             
+             {/* CONTAINER DA MOLDURA E IMAGEM */}
+             <div className="relative mb-16">
+                 {/* Tech Texts */}
+                 <div className="absolute -top-6 left-0 text-[9px] font-mono text-white/30 tracking-[0.2em] uppercase">
+                   TARGET_ID: TRACKER_J16_SIMCOM
+                 </div>
+                 
+                 {/* Image Box */}
+                 <div className="w-full bg-white/[0.02] border border-white/5 relative flex items-center justify-center mt-4 overflow-hidden group">
+                   
+                   {/* A IMAGEM EM 100% SEM CORTES */}
+                   <img 
+                     src="/hardware-img.png" 
+                     alt="Tracker J16 4G Simcom" 
+                     className="w-full h-auto object-contain filter drop-shadow-[0_20px_40px_rgba(235,19,19,0.3)] z-10 transition-transform duration-700 group-hover:scale-[1.05]"
+                   />
 
-          <div className="p-6 md:p-10 rounded-none bg-[#0D0D0D]/90 backdrop-blur-md border border-white/5 hover:border-primary/30 transition-all duration-500 group relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-4 font-mono text-[10px] text-white/20 group-hover:text-primary transition-colors uppercase">SAT_PRECISION</div>
-            <div className="w-16 h-16 rounded-none bg-black border border-white/10 flex items-center justify-center mb-10 group-hover:bg-primary group-hover:border-primary transition-all duration-300">
-              <MapPin className="h-8 w-8 text-primary group-hover:text-white transition-colors" />
-            </div>
-            <h3 className="text-lg md:text-2xl font-display font-black text-white mb-4 uppercase tracking-wider">Geolocalização Ativa</h3>
-            <p className="text-white/70 leading-relaxed font-light text-sm group-hover:text-white transition-colors">
-              Processamento paralelo de constelações GLONASS + GPS. Margem de erro reduzida a centímetros, ignorando obstruções urbanas e interferências.
-            </p>
-          </div>
+                   {/* Inner Vignette to blend the edges of the image smoothly */}
+                   <div className="absolute inset-0 bg-[radial-gradient(transparent_50%,#040404_100%)] z-10 pointer-events-none opacity-80" />
 
-          <div className="p-6 md:p-10 rounded-none bg-[#0D0D0D]/90 backdrop-blur-md border border-white/5 hover:border-primary/30 transition-all duration-500 group relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-4 font-mono text-[10px] text-white/20 group-hover:text-primary transition-colors uppercase">FAIL_SAFE</div>
-            <div className="w-16 h-16 rounded-none bg-black border border-white/10 flex items-center justify-center mb-10 group-hover:bg-primary group-hover:border-primary transition-all duration-300">
-              <Cpu className="h-8 w-8 text-primary group-hover:text-white transition-colors" />
-            </div>
-            <h3 className="text-lg md:text-2xl font-display font-black text-white mb-4 uppercase tracking-wider">Protocolo Anti-Sabotagem</h3>
-            <p className="text-white/70 leading-relaxed font-light text-sm group-hover:text-white transition-colors">
-              Backup energético de alta densidade. Alerta imediato de corte de energia física com transição automática para célula de energia interna protegida.
-            </p>
+                   {/* 4 Corner Brackets using Primary */}
+                   <div className="absolute top-4 left-4 border-t-[3px] border-l-[3px] border-primary w-8 h-8 md:w-10 md:h-10 z-20 pointer-events-none" />
+                   <div className="absolute top-4 right-4 border-t-[3px] border-r-[3px] border-primary w-8 h-8 md:w-10 md:h-10 z-20 pointer-events-none" />
+                   <div className="absolute bottom-4 left-4 border-b-[3px] border-l-[3px] border-primary w-8 h-8 md:w-10 md:h-10 z-20 pointer-events-none" />
+                   <div className="absolute bottom-4 right-4 border-b-[3px] border-r-[3px] border-primary w-8 h-8 md:w-10 md:h-10 z-20 pointer-events-none" />
+                 </div>
+
+                 {/* Tech Texts Bottom */}
+                 <div className="absolute -bottom-10 right-0 text-[9px] font-mono text-white/30 tracking-[0.2em] uppercase">
+                   FREQ: 4G LTE-FDD / CHIP M2M SIMCOM
+                 </div>
+             </div>
+
+             {/* TEXTO DE ESPECIFICAÇÕES NO ESPAÇO VAZIO (Abaixo da Imagem) */}
+             <div className="mt-auto pt-8 border-t border-white/5 relative bg-gradient-to-t from-black to-transparent">
+                 <div className="mb-10 flex justify-between items-end">
+                     <div>
+                        <h3 className="font-mono text-white/40 text-[9px] tracking-[0.2em] uppercase mb-2">Ficha Técnica Oficial</h3>
+                        <p className="text-white/80 font-display text-xl uppercase font-black tracking-widest leading-none">
+                          Tracker <span className="text-primary">J16</span> 4G <span className="font-light text-white/50">Simcom</span>
+                        </p>
+                        <p className="max-w-xs text-white/50 text-[13px] leading-relaxed mt-4 font-light border-l border-white/10 pl-3">
+                          Padrão-ouro global para auditoria e segurança. Este chassi é responsável por abrigar a arquitetura com o chipset da Simcom mais brutal do setor veicular. 
+                        </p>
+                     </div>
+                 </div>
+                 
+                 <div className="grid grid-cols-2 gap-x-8 gap-y-10">
+                    <div>
+                      <span className="block text-primary font-mono text-[9px] mb-2 tracking-widest uppercase">Tensão Multi-Chassi</span>
+                      <span className="text-white/60 font-light text-[13px] leading-relaxed block">
+                        Faixa brutal de tolerância variando de <strong>9V a 90V DC.</strong> Absorve oscilações elétricas insanas em Carretas e Máquinas Pesadas sem comprometer a CPU Simcom.
+                      </span>
+                    </div>
+                    <div>
+                      <span className="block text-primary font-mono text-[9px] mb-2 tracking-widest uppercase">Simcom Blind-Cache</span>
+                      <span className="text-white/60 font-light text-[13px] leading-relaxed block">
+                        Mecanismo de memória interna (DRAM Tracker). Permite o represamento exato de mais de <strong>8.000 checkpoints</strong> físicos quando o J16 entra em túneis subterrâneos ou cortes abruptos, despejando a trajetória íntegra no momento que reconecta.
+                      </span>
+                    </div>
+                 </div>
+             </div>
           </div>
         </div>
       </div>

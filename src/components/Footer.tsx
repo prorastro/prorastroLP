@@ -9,8 +9,7 @@ const socialLinks = [
 
 const Footer = () => {
   return (
-    <footer id="contato" className="bg-[#040404] relative">
-      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
+    <footer id="contato" className="bg-black/30 backdrop-blur-md border-t border-white/5 relative z-10">
       <div className="container py-16">
         <div className="grid md:grid-cols-3 gap-16 mb-12 max-w-6xl mx-auto">
           {/* Brand */}

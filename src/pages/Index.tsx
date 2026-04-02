@@ -24,9 +24,28 @@ const Index = () => {
           <Process />
           <Pricing />
           <FAQ />
-          <CTA />
-          <Footer />
         </Suspense>
+        <div className="relative z-0">
+            {/* Unified Background for CTA and Footer */}
+            <div className="absolute inset-0 z-[-1] bg-[#040404]" />
+            
+            {/* Image Wrapper with Seamless Fade */}
+            <div className="absolute top-0 left-0 w-full h-[750px] sm:h-[900px] md:h-full z-[-1]">
+              <img 
+                src="/cta_background_car.png" 
+                alt="Car background"
+                className="w-full h-full object-cover object-[center_bottom] md:object-[center_85%]"
+              />
+              <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-[#040404] via-[#040404]/80 to-transparent pointer-events-none" />
+            </div>
+            <div className="absolute inset-0 bg-black/60 z-[-1] mix-blend-multiply pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-black/90 z-[-1] opacity-90 pointer-events-none" />
+
+            <Suspense fallback={null}>
+              <CTA />
+              <Footer />
+            </Suspense>
+          </div>
       </div>
     </div>
   );
