@@ -72,7 +72,7 @@ const Testimonials = () => {
           </div>
           
           <h2 className="font-display text-[26px] sm:text-3xl md:text-5xl lg:text-5xl font-black text-white uppercase tracking-tight leading-[1.1]">
-            Confiança <br className="md:hidden" /><span className="text-primary whitespace-nowrap">Comprovada em Missão</span>
+            Confiança <br className="md:hidden" /><span className="text-primary">Comprovada em Missão</span>
           </h2>
         </div>
       </div>
