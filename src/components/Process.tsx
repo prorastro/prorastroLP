@@ -55,10 +55,9 @@ const Process = () => {
               key={step.number}
               className="group relative flex flex-col transition-all duration-700"
             >
-              {/* Card */}
-              <div className="relative flex flex-col h-full rounded-none border-none bg-[#0D0D0D] p-10 transition-all duration-500 hover:bg-[#121212] hover:shadow-[0_20px_50px_rgba(0,0,0,0.8)]">
+              <div className="relative flex flex-col h-full rounded-none border border-white/5 bg-[#0D0D0D] p-10 transition-all duration-500 z-10 hover:z-20 hover:bg-[#121212] hover:-translate-y-2 hover:border-primary/30 hover:shadow-[0_20px_40px_rgba(235,19,19,0.15)]">
                 {/* Tactical Accent */}
-                <div className="absolute top-0 left-0 w-16 h-1 bg-primary/80" />
+                <div className="absolute top-0 left-0 w-16 h-[2px] bg-primary group-hover:w-full transition-all duration-700 ease-out" />
 
 
 {/* Icon + badge */}

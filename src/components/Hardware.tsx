@@ -1,6 +1,9 @@
 import { Cpu, Wifi, MapPin, Zap } from "lucide-react";
+import { useInView } from "@/hooks/use-in-view";
 
 const Hardware = () => {
+  const { ref, inView } = useInView();
+
   return (
     <section className="py-24 bg-[#040404] relative overflow-hidden">
       
@@ -21,7 +24,7 @@ const Hardware = () => {
       {/* Ambient Radial Glows - CENTRALIZADOS */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[1000px] h-[600px] md:h-[1000px] bg-primary/5 blur-[150px] pointer-events-none rounded-full" />
       
-      <div className="container relative z-10 max-w-[1240px] mx-auto px-4 md:px-8">
+      <div ref={ref} className={`container relative z-10 max-w-[1240px] mx-auto px-4 md:px-8 transition-all duration-1000 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
         
         {/* HEADER */}
         <div className="mb-16 border-l-[3px] border-primary pl-6 max-w-4xl">
@@ -46,7 +49,7 @@ const Hardware = () => {
           <div className="grid sm:grid-cols-2 gap-4 lg:gap-5 order-2 lg:order-1">
             
             {/* CARD 1 */}
-            <div className="bg-[#0D0D0D] p-8 lg:p-10 relative flex flex-col justify-start h-full group transition-colors hover:bg-[#111111]">
+            <div className="bg-[#0D0D0D] p-8 lg:p-10 relative flex flex-col justify-start h-full group border border-white/5 transition-all duration-500 z-10 hover:z-20 hover:bg-[#111111] hover:-translate-y-2 hover:border-primary/30 hover:shadow-[0_20px_40px_rgba(235,19,19,0.15)]">
               <div className="mb-8 flex">
                 <div className="w-10 h-10 bg-white/[0.02] flex items-center justify-center border border-white/5">
                   <Wifi className="h-5 w-5 text-primary" />
@@ -66,7 +69,7 @@ const Hardware = () => {
             </div>
 
             {/* CARD 2 */}
-            <div className="bg-[#0D0D0D] p-8 lg:p-10 relative flex flex-col justify-start h-full group transition-colors hover:bg-[#111111]">
+            <div className="bg-[#0D0D0D] p-8 lg:p-10 relative flex flex-col justify-start h-full group border border-white/5 transition-all duration-500 z-10 hover:z-20 hover:bg-[#111111] hover:-translate-y-2 hover:border-primary/30 hover:shadow-[0_20px_40px_rgba(235,19,19,0.15)]">
               <div className="mb-8 flex">
                 <div className="w-10 h-10 bg-white/[0.02] flex items-center justify-center border border-white/5">
                   <Zap className="h-5 w-5 text-primary" />
@@ -86,7 +89,7 @@ const Hardware = () => {
             </div>
 
             {/* CARD 3 */}
-            <div className="bg-[#0D0D0D] p-8 lg:p-10 relative flex flex-col justify-start h-full group transition-colors hover:bg-[#111111]">
+            <div className="bg-[#0D0D0D] p-8 lg:p-10 relative flex flex-col justify-start h-full group border border-white/5 transition-all duration-500 z-10 hover:z-20 hover:bg-[#111111] hover:-translate-y-2 hover:border-primary/30 hover:shadow-[0_20px_40px_rgba(235,19,19,0.15)]">
               <div className="mb-8 flex">
                 <div className="w-10 h-10 bg-white/[0.02] flex items-center justify-center border border-white/5">
                   <MapPin className="h-5 w-5 text-primary" />
@@ -106,7 +109,7 @@ const Hardware = () => {
             </div>
 
             {/* CARD 4 */}
-            <div className="bg-[#0D0D0D] p-8 lg:p-10 relative flex flex-col justify-start h-full group transition-colors hover:bg-[#111111]">
+            <div className="bg-[#0D0D0D] p-8 lg:p-10 relative flex flex-col justify-start h-full group border border-white/5 transition-all duration-500 z-10 hover:z-20 hover:bg-[#111111] hover:-translate-y-2 hover:border-primary/30 hover:shadow-[0_20px_40px_rgba(235,19,19,0.15)]">
               <div className="mb-8 flex">
                 <div className="w-10 h-10 bg-white/[0.02] flex items-center justify-center border border-white/5">
                   <Cpu className="h-5 w-5 text-primary" />
@@ -144,6 +147,8 @@ const Hardware = () => {
                    <img 
                      src="/hardware-img.png" 
                      alt="Tracker J16 4G Simcom" 
+                     loading="lazy"
+                     decoding="async"
                      className="w-full h-auto object-contain filter drop-shadow-[0_20px_40px_rgba(235,19,19,0.3)] z-10 transition-transform duration-700 group-hover:scale-[1.05]"
                    />
 

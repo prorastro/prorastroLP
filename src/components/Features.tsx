@@ -127,7 +127,7 @@ const Features = () => {
           </div>
 
           {/* Card 4: Alertas - SMALL */}
-          <div className="group relative rounded-none bg-[#0D0D0D] border border-white/5 p-8 transition-all duration-500 hover:bg-[#111111] overflow-hidden">
+          <div className="group relative rounded-none bg-[#0D0D0D] border border-white/5 p-8 transition-all duration-500 hover:bg-[#111111] overflow-hidden hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(235,19,19,0.15)] hover:border-primary/30 z-10 hover:z-20">
              <div className="mb-8 flex items-center justify-between">
                 <div className="w-10 h-10 bg-white/[0.03] flex items-center justify-center border border-white/10 group-hover:border-primary/30 transition-colors">
                   <Bell className="h-5 w-5 text-white/50 group-hover:text-primary transition-colors" />

@@ -7,6 +7,7 @@ const Features = lazy(() => import("@/components/Features"));
 const Hardware = lazy(() => import("@/components/Hardware"));
 const Process  = lazy(() => import("@/components/Process"));
 const Pricing  = lazy(() => import("@/components/Pricing"));
+const Testimonials = lazy(() => import("@/components/Testimonials"));
 const FAQ      = lazy(() => import("@/components/FAQ"));
 const CTA      = lazy(() => import("@/components/CTA"));
 const Footer   = lazy(() => import("@/components/Footer"));
@@ -23,6 +24,7 @@ const Index = () => {
           <Hardware />
           <Process />
           <Pricing />
+          <Testimonials />
           <FAQ />
         </Suspense>
         <div className="relative z-0">
@@ -34,6 +36,8 @@ const Index = () => {
               <img 
                 src="/cta_background_car.png" 
                 alt="Car background"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover object-[center_bottom] md:object-[center_85%]"
               />
               <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-[#040404] via-[#040404]/80 to-transparent pointer-events-none" />
