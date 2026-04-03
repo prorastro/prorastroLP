@@ -1,65 +1,95 @@
 import { MapPin, Shield, Smartphone, Bell, Route, BarChart3 } from "lucide-react";
-// Removed useInView
-import { cn } from "@/lib/utils";
 
-const features = [
+const featuresLeft = [
   {
     icon: MapPin,
     title: "Rastreamento em Tempo Real",
     description:
-      "Acompanhe a localização exata do seu veículo a qualquer momento pelo app ou plataforma web.",
+      "Posicionamento atualizado a cada instante via nuvem. Latitude e longitude exata sem delays.",
   },
   {
     icon: Shield,
-    title: "Proteção Contra Roubo",
+    title: "Desarme Anti-Roubo",
     description:
-      "Sistema de bloqueio remoto e alertas instantâneos em caso de movimentação não autorizada.",
-  },
-  {
-    icon: Bell,
-    title: "Alertas Inteligentes",
-    description:
-      "Notificações personalizadas de velocidade, cerca virtual e manutenção preventiva.",
+      "Corte a bomba de combustível remotamente pelo app. Um toque e o veículo para na hora.",
   },
   {
     icon: Route,
-    title: "Histórico de Rotas",
+    title: "Logs de Trajetos",
     description:
-      "Consulte o histórico completo de trajetos realizados com detalhes de velocidade e paradas.",
-  },
-  {
-    icon: Smartphone,
-    title: "App Completo",
-    description:
-      "Aplicativo disponível para iOS e Android com interface intuitiva e fácil de usar.",
-  },
-  {
-    icon: BarChart3,
-    title: "Relatórios Detalhados",
-    description:
-      "Relatórios de quilometragem, consumo e comportamento do motorista para gestão de frotas.",
+      "Playback completo de rotas com métricas de velocidade, paradas e freadas.",
   },
 ];
 
-const Features = () => {
+const featuresRight = [
+  {
+    icon: Bell,
+    title: "Alarme Geofence",
+    description:
+      "Crie cercas virtuais invisíveis. Se transpassadas, você é alertado em segundos.",
+  },
+  {
+    icon: Smartphone,
+    title: "App iOS & Android",
+    description:
+      "Interface sombria e intuitiva. Controle total na palma da sua mão, a qualquer hora.",
+  },
+  {
+    icon: BarChart3,
+    title: "Métricas de Frota",
+    description:
+      "Quilometragem, consumo e padrão de condução em relatórios exportáveis com dois toques.",
+  },
+];
 
+const FeatureItem = ({
+  icon: Icon,
+  title,
+  description,
+  align,
+}: {
+  icon: React.ElementType;
+  title: string;
+  description: string;
+  align: "left" | "right";
+}) => (
+  <div
+    className={`group flex gap-4 items-start ${align === "right" ? "flex-row-reverse text-right" : "flex-row text-left"}`}
+  >
+    <div className="flex-shrink-0 w-10 h-10 bg-white/[0.03] border border-white/10 flex items-center justify-center group-hover:border-primary/40 group-hover:bg-primary/10 transition-all duration-300">
+      <Icon className="h-5 w-5 text-white/40 group-hover:text-primary transition-colors duration-300" />
+    </div>
+    <div>
+      <h3 className="font-display text-[13px] font-black text-white uppercase tracking-widest mb-1">
+        {title}
+      </h3>
+      <p className="text-white/40 text-[12px] font-light leading-relaxed">
+        {description}
+      </p>
+    </div>
+  </div>
+);
+
+const Features = () => {
   return (
-    <section id="recursos" className="py-32 bg-[#040404] relative overflow-hidden">
+    <section id="recursos" className="py-24 md:py-32 bg-[#040404] relative overflow-hidden">
+      {/* Top border */}
       <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-      
-      {/* Tactical Faint Grid Background */}
-      <div 
+
+      {/* Tactical grid background */}
+      <div
         className="absolute inset-0 pointer-events-none opacity-[0.03] mix-blend-screen"
         style={{
-          backgroundImage: "linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)",
+          backgroundImage:
+            "linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)",
           backgroundSize: "60px 60px",
-          backgroundPosition: "center center"
+          backgroundPosition: "center center",
         }}
       />
-      
-      <div className="container relative z-10 max-w-6xl mx-auto px-4">
+
+      <div className="container relative z-10 max-w-7xl mx-auto px-4">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-20">
+        <div className="text-center max-w-2xl mx-auto mb-16 md:mb-20">
           <p className="text-primary font-display font-black text-xs uppercase tracking-[0.4em] mb-4 opacity-90">
             Recursos
           </p>
@@ -71,108 +101,39 @@ const Features = () => {
           </p>
         </div>
 
-        {/* Tactical Bento Box Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-3 gap-4 md:gap-5">
-          
-          {/* Card 1: Rastreamento em Tempo Real - LARGE WIDTH */}
-          <div className="group relative rounded-none bg-[#0D0D0D] border border-white/5 p-8 md:p-10 transition-all duration-500 hover:bg-[#111111] md:col-span-2 overflow-hidden">
-             <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 blur-[50px] group-hover:bg-primary/20 transition-all duration-700" />
-             <div className="mb-8 flex items-center justify-between">
-                <div className="w-12 h-12 bg-primary/10 flex items-center justify-center border border-primary/20">
-                  <MapPin className="h-6 w-6 text-primary" />
-                </div>
-             </div>
-             <h3 className="font-display text-xl font-black text-white mb-3 uppercase tracking-wider">
-               Rastreamento em Tempo Real
-             </h3>
-             <p className="text-white/40 leading-relaxed text-[13px] font-light md:pr-12">
-               Posicionamento atualizado a cada instante. O hardware J16 desenha trajetórias cristalinas no mapa via nuvem, entregando a latitude e longitude exata da sua máquina a qualquer instante sem delays estressantes.
-             </p>
-             <div className="absolute bottom-4 right-4 border-b-[2px] border-r-[2px] border-primary/40 w-6 h-6 z-20 pointer-events-none" />
+        {/* Split-screen layout */}
+        <div className="flex flex-col md:flex-row items-center gap-10 md:gap-0">
+
+          {/* Left features */}
+          <div className="flex flex-col gap-8 md:gap-10 flex-1 md:pr-8">
+            {featuresLeft.map((f) => (
+              <FeatureItem key={f.title} {...f} align="left" />
+            ))}
           </div>
 
-          {/* Card 2: Proteção Contra Roubo - TALL HEIGHT */}
-          <div className="group relative rounded-none bg-[#0D0D0D] border border-white/5 p-8 transition-all duration-500 hover:bg-[#111111] md:col-span-1 md:row-span-2 flex flex-col overflow-hidden">
-             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-48 h-48 bg-primary/5 blur-[50px] group-hover:bg-primary/10 transition-all duration-700" />
-             <div className="mb-8 flex items-center justify-between">
-                <div className="w-12 h-12 bg-white/[0.03] flex items-center justify-center border border-white/10 group-hover:border-primary/30 transition-colors">
-                  <Shield className="h-6 w-6 text-white/50 group-hover:text-primary transition-colors" />
-                </div>
-             </div>
-             <div className="mt-auto">
-                <h3 className="font-display text-lg font-black text-white mb-3 uppercase tracking-wider">
-                  Desarme Anti-Roubo
-                </h3>
-                <p className="text-white/40 leading-relaxed text-[13px] font-light">
-                  Ordene o corte cirúrgico da bomba de combustível da ignição pelo seu próprio app. Um toque, e o veículo vira um peso morto na via pública.
-                </p>
-             </div>
-             <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-primary/50 to-transparent scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500 ease-out" />
+          {/* Center car image */}
+          <div className="relative flex-shrink-0 w-56 md:w-72 lg:w-80 mx-auto">
+            {/* Glow */}
+            <div className="absolute inset-0 bg-primary/10 blur-[60px] rounded-full scale-75" />
+            {/* Corner accents */}
+            <div className="absolute top-0 left-0 border-t-2 border-l-2 border-primary/50 w-6 h-6 z-10" />
+            <div className="absolute top-0 right-0 border-t-2 border-r-2 border-primary/50 w-6 h-6 z-10" />
+            <div className="absolute bottom-0 left-0 border-b-2 border-l-2 border-primary/50 w-6 h-6 z-10" />
+            <div className="absolute bottom-0 right-0 border-b-2 border-r-2 border-primary/50 w-6 h-6 z-10" />
+            <img
+              src="/car-top-view.png"
+              alt="Veículo rastreado pela Prorastro"
+              className="relative z-10 w-full drop-shadow-[0_0_40px_rgba(235,19,19,0.25)]"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
 
-          {/* Card 3: Histórico - SMALL */}
-          <div className="group relative rounded-none bg-[#0D0D0D] border border-white/5 p-8 transition-all duration-500 hover:bg-[#111111] overflow-hidden">
-             <div className="mb-8 flex items-center justify-between">
-                <div className="w-10 h-10 bg-white/[0.03] flex items-center justify-center border border-white/10 group-hover:border-primary/30 transition-colors">
-                  <Route className="h-5 w-5 text-white/50 group-hover:text-primary transition-colors" />
-                </div>
-             </div>
-             <h3 className="font-display text-[15px] font-black text-white mb-2 uppercase tracking-widest">
-               Logs de Trajetos
-             </h3>
-             <p className="text-white/40 leading-relaxed text-[13px] font-light">
-               Playbacks detalhados de histórico na rodovia com métricas de velocidade e freadas.
-             </p>
-          </div>
-
-          {/* Card 4: Alertas - SMALL */}
-          <div className="group relative rounded-none bg-[#0D0D0D] border border-white/5 p-8 transition-all duration-500 hover:bg-[#111111] overflow-hidden hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(235,19,19,0.15)] hover:border-primary/30 z-10 hover:z-20">
-             <div className="mb-8 flex items-center justify-between">
-                <div className="w-10 h-10 bg-white/[0.03] flex items-center justify-center border border-white/10 group-hover:border-primary/30 transition-colors">
-                  <Bell className="h-5 w-5 text-white/50 group-hover:text-primary transition-colors" />
-                </div>
-             </div>
-             <h3 className="font-display text-[15px] font-black text-white mb-2 uppercase tracking-widest">
-               Alarme Geofence
-             </h3>
-             <p className="text-white/40 leading-relaxed text-[13px] font-light">
-               Crie barricadas virtuais invisíveis. Se a sua cerca virtual for transpassada, você saberá em segundos.
-             </p>
-          </div>
-
-          {/* Card 5: App Completo - SMALL */}
-          <div className="group relative rounded-none bg-[#0D0D0D] border border-white/5 p-8 transition-all duration-500 hover:bg-[#111111] overflow-hidden">
-             <div className="mb-8 flex items-center justify-between">
-                <div className="w-10 h-10 bg-white/[0.03] flex items-center justify-center border border-white/10 group-hover:border-primary/30 transition-colors">
-                  <Smartphone className="h-5 w-5 text-white/50 group-hover:text-primary transition-colors" />
-                </div>
-             </div>
-             <h3 className="font-display text-[15px] font-black text-white mb-2 uppercase tracking-widest">
-               Base Militar de Bolso
-             </h3>
-             <p className="text-white/40 leading-relaxed text-[13px] font-light">
-               UI sombria, intuitiva e instantânea rodando no seu iOS ou Android.
-             </p>
-             <div className="absolute top-4 left-4 border-t-[2px] border-l-[2px] border-white/10 w-4 h-4 z-20 pointer-events-none" />
-          </div>
-
-          {/* Card 6: Relatórios - LARGE WIDTH */}
-          <div className="group relative rounded-none bg-[#0D0D0D] border border-white/5 p-8 md:p-10 transition-all duration-500 hover:bg-[#111111] md:col-span-2 overflow-hidden">
-             <div className="absolute bottom-0 left-0 w-64 h-32 bg-primary/5 blur-[50px] group-hover:bg-primary/20 transition-all duration-700" />
-             <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-6">
-                 <div className="w-14 h-14 bg-white/[0.03] flex-shrink-0 flex items-center justify-center border border-white/10 group-hover:border-primary/30 transition-all">
-                   <BarChart3 className="h-6 w-6 text-white/50 group-hover:text-primary transition-colors" />
-                 </div>
-                 <div>
-                   <h3 className="font-display text-xl font-black text-white mb-2 uppercase tracking-wider">
-                     Métricas Analíticas de Frota
-                   </h3>
-                   <p className="text-white/40 leading-relaxed text-[13px] font-light max-w-xl">
-                     Audite a quilometragem diária, despesas com combustível e padrão de condução do motorista em gráficos herméticos exportáveis com dois toques.
-                   </p>
-                 </div>
-             </div>
-             <div className="absolute right-0 bottom-0 top-0 w-1 bg-gradient-to-b from-transparent via-white/5 to-transparent scale-y-0 group-hover:scale-y-100 origin-center transition-transform duration-500 ease-out" />
+          {/* Right features */}
+          <div className="flex flex-col gap-8 md:gap-10 flex-1 md:pl-8">
+            {featuresRight.map((f) => (
+              <FeatureItem key={f.title} {...f} align="right" />
+            ))}
           </div>
 
         </div>
