@@ -30,20 +30,21 @@ const Index = () => {
         <div className="relative z-0">
             {/* Unified Background for CTA and Footer */}
             <div className="absolute inset-0 z-[-1] bg-[#040404]" />
-            
-            {/* Image Wrapper with Seamless Fade */}
-            <div className="absolute top-0 left-0 w-full h-[750px] sm:h-[900px] md:h-full z-[-1] hidden md:block">
-              <img 
-                src="/cta_background_car.png" 
+
+            {/* Image Wrapper with Seamless Fade — desktop: full height; mobile: CTA only */}
+            <div className="absolute top-0 left-0 w-full md:h-full h-[420px] z-[-1] overflow-hidden">
+              <img
+                src="/cta-final-4k.png"
                 alt="Car background"
                 loading="lazy"
                 decoding="async"
-                className="w-full h-full object-cover object-[center_bottom] md:object-[center_85%]"
+                className="w-full h-full object-cover object-[center_40%] blur-[1px] md:scale-105 scale-100"
               />
               <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-[#040404] via-[#040404]/80 to-transparent pointer-events-none" />
+              <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#040404] via-[#040404]/60 to-transparent pointer-events-none" />
             </div>
-            <div className="absolute inset-0 bg-black/60 z-[-1] mix-blend-multiply pointer-events-none" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-black/90 z-[-1] opacity-90 pointer-events-none" />
+            <div className="absolute top-0 left-0 w-full md:h-full h-[420px] bg-black/20 md:bg-black/40 z-[-1] pointer-events-none" />
+            <div className="absolute top-0 left-0 w-full md:h-full h-[420px] bg-gradient-to-t from-black/40 via-transparent to-black/60 md:from-black/20 md:via-transparent md:to-black/90 z-[-1] opacity-60 pointer-events-none" />
 
             <Suspense fallback={null}>
               <CTA />
