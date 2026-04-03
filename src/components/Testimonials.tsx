@@ -1,29 +1,19 @@
 // Removed useInView
-import { Star, Shield, Car, Truck, MapPin, Zap } from "lucide-react";
+import { Star, Shield, Car, Truck, MapPin, Zap, Smartphone } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useEffect, useRef } from "react";
 
 const testimonials = [
-  { text: "Gerenciamos uma frota de 40 veículos de transporte de valores. A precisão do sistema PR-750 e a baixa latência no bloqueio remoto foram decisivas em uma tentativa de interceptação no mês passado. Recuperamos o ativo em menos de 15 minutos.", author: "Ricardo Santos", role: "Diretor de Operações | Grupo Alpha Security", icon: Shield },
-  { text: "Como colecionador de veículos de alto luxo, a segurança é minha prioridade número um. O hardware Prorastro é indetectável e o app me dá paz de espírito total. A telemetria avançada é um diferencial tático que nenhum outro player do mercado oferece.", author: "Dr. Eduardo M.", role: "Proprietário | Luxury Car Collection", icon: Car },
-  { text: "A interface de comando no mobile é incrível. Gerencio minha logística de entrega em tempo real com mapas 3D. A bateria interna de backup já nos salvou em uma tentativa de sabotagem elétrica. Sistema robusto e confiável 100% do tempo.", author: "Mariana Vaz", role: "Gestora de Logística | Express Transp.", icon: Truck },
-  { text: "Tivemos prejuízos alarmantes com desvio de rotas e combustível. Com a plataforma de relatório de percurso, em um mês identificamos os gargalos. Nossa eficiência subiu em 32%.", author: "Carlos P.", role: "CEO | TransNational", icon: Truck },
-  { text: "O rastreamento não falhou uma única vez desde que implementamos nas nossas SUVs executivas. A instalação não alterou absolutamente nada na garantia de fábrica do motor. Profissionalismo ímpar.", author: "Roberto Dantas", role: "Diretor Executivo | VIP Rides", icon: Car },
-  { text: "O alerta de cerca virtual me avisa instintivamente se o maquinário sair do canteiro de obras. Sem falsos positivos. Infraestrutura de bloqueio rápido é a melhor que já testamos.", author: "Fernando A.", role: "Engenheiro Chefe | Construtora Apex", icon: Shield },
-  { text: "O painel de monitoramento massivo nos permite observar mais de 150 caminhões ao mesmo tempo na mesma tela sem travamentos ou falhas.", author: "Roberto Lima", role: "Coordenador | Logística Fast 24/7", icon: MapPin },
-  { text: "Instalamos na frota de representantes comerciais. A acurácia do sinal em estradas de terra no interior isolado é simplesmente absurda, fruto do SIMCOM de alta performance.", author: "Sérgio Vieira", role: "Supervisão de Vendas | AgroTech", icon: Zap },
-  { text: "Já fui assaltado antes, e o rastreador anterior perdeu o sinal. A ProRastro encontrou meu carro em 40 minutos em um galpão abandonado porque o Glonass cortou qualquer interferência.", author: "Marcos Ribeiro", role: "Motorista de Aplicativo", icon: Car },
-  { text: "Um serviço muito além da tecnologia: o atendimento humanizado e cirúrgico da equipe em momentos de tensão na madruga fazem cada centavo valer a pena.", author: "Camila Fonseca", role: "Gerente de Frota | Ambulâncias SP", icon: Shield },
-  { text: "Saber quando a van de entrega está exatamente parada na porta do cliente alavancou a confiança do meu restaurante a outro patamar. Absolutamente indispensável.", author: "Julio C.", role: "Sócio | FoodChain", icon: Truck },
-  { text: "Bloqueio do motor direto celular é um show. Testei com o carro na garagem e o desarme foi instantâneo, coisa de 3 a 5 segundos no máximo.", author: "Rodrigo D.", role: "Uso Pessoal | Hilux SRX", icon: Zap },
-  { text: "Uso na minha moto de alta cilindrada. O rastreador sendo à prova d'água e consumindo baixíssima carga da bateria preserva tudo intacto nas viagens do fim de semana.", author: "Felipe Freitas", role: "Proprietário | Ducati Panigale", icon: Zap },
-  { text: "As quebras de velocidade acima de 120km/h reportam direto pro meu e-mail. Tenho o raio-x total da conduta de direção defensiva do meu quadro de motoristas.", author: "Leonardo M.", role: "Gerente Operacional | Expresso Leste", icon: Truck },
-  { text: "Não confio no seguro sozinho e prefiro não arriscar. Com o backup de bateria do rastreador J16 eu tenho a certeza matemática de que não perco o carro em desmanches.", author: "André S.", role: "Diretor Comercial | Veículo Particular", icon: Shield },
-  { text: "O detalhamento geográfico exato da posição em ruas minúsculas, não errando quarteirões, prova que a antena GPS desses equipamentos opera em alta definição espacial.", author: "Matheus N.", role: "CTO | Rota Inteligente", icon: MapPin },
-  { text: "Mesmo em garagens de prédios de 3 subsolos o aparelho continua cuspindo dados de log se valendo da rede secundária LBS quando perde a vista pro céu.", author: "Tânia R.", role: "Moradora de Condomínio", icon: Shield },
-  { text: "Equipe técnica muito competente e transparente na instalação. Tudo dissimulado e sem bagunça de fios no chicote original. Ninguém sabe onde o prato está.", author: "Alexandre K.", role: "Frota Executiva | Sedans Locação", icon: Car },
-  { text: "A facilidade de emitir históricos de rodagem semanais diretamente pelo aplicativo facilitou demais a prestação de contas com o RH da empresa.", author: "Bruno V.", role: "Representante de Vendas", icon: MapPin },
-  { text: "Quando meu pneu estourou na estrada sem iluminação, pude enviar até as coordenadas GPS cruas copiadas do app pro reboque para acharem meu carro no breu absoluto.", author: "Ramon Carvalho", role: "Uso Profissional e Particular", icon: Zap }
+  { text: "Coloquei no carro da minha filha que começou a dirigir agora. A paz de espírito de saber exatamente onde ela está quando volta da faculdade à noite não tem preço. O alerta de zona segura é sensacional.", author: "Helena Souza", role: "Mãe e Proprietária Particular", icon: Shield },
+  { text: "Trabalho como entregador e minha moto é meu único sustento. Deixar ela na rua sempre foi uma tortura, mas agora com o bloqueio pelo celular eu trabalho muito mais tranquilo. Já recomendei pra todo o grupo.", author: "João silva", role: "Entregador Autônomo", icon: Zap },
+  { text: "Tive meu carro levado em um assalto e recuperei em menos de 30 minutos. Bloqueei o motor pelo app ainda tremendo, e a polícia achou ele parado no bairro vizinho. O rastreador se pagou ali mesmo.", author: "Marcos Oliveira", role: "Proprietário de Veículo Particular", icon: Car },
+  { text: "O que eu mais gosto é que não consome a bateria da moto. Já tive outros que descarregavam tudo se ficasse 3 dias parada. Esse da Prorastro é tecnologia de outro nível, muito confiável.", author: "Felipe Freitas", role: "Motociclista | Viagens e Lazer", icon: MapPin },
+  { text: "Sou motorista de aplicativo e rodo muito em áreas que não conheço. O monitoramento em tempo real me dá a segurança necessária para trabalhar tranquilo. O atendimento da equipe no suporte é nota 10.", author: "Ricardo Santos", role: "Motorista de Aplicativo", icon: Zap },
+  { text: "Moro em prédio sem garagem e meu carro fica na rua. O sensor de movimento me avisa no celular se alguém encostar no carro ou tentar abrir. É como ter um segurança 24h cuidando do meu patrimônio.", author: "Camila Fonseca", role: "Uso Pessoal Diário", icon: Smartphone },
+  { text: "A precisão do GPS é absurda. Consigo ver até em qual lado da rua o carro está estacionado. O app é super intuitivo e não trava, bem diferente de outros que já testei no passado.", author: "André S.", role: "Proprietário de SUV", icon: MapPin },
+  { text: "Instalação super limpa, não cortaram nenhum fio original do meu carro zero. Mantive a garantia de fábrica e agora tenho a segurança que o seguro sozinho não me dava.", author: "Lucas Ferreira", role: "Proprietário Particular", icon: Shield },
+  { text: "O bloqueio remoto funciona muito rápido. Fiz o teste na garagem e o carro apagou em 3 segundos. Em caso de roubo, sei que os bandidos não vão longe com o meu carro.", author: "Patrícia Lima", role: "Usuária Prorastro", icon: Zap },
+  { text: "O detalhamento das rotas me ajuda a controlar quanto gasto de combustível no mês. Além da segurança, acabou se tornando uma ferramenta de economia pro meu dia a dia.", author: "Bruno V.", role: "Vendedor Autônomo", icon: MapPin }
 ];
 
 const Testimonials = () => {
@@ -66,13 +56,13 @@ const Testimonials = () => {
           <div className="flex items-center justify-center gap-4 mb-6">
             <div className="h-[1px] w-12 bg-primary/40 text-primary"></div>
             <p className="text-primary font-mono text-[10px] uppercase tracking-[0.3em] font-semibold">
-              Operações Bem-Sucedidas
+              Comunidade Prorastro
             </p>
             <div className="h-[1px] w-12 bg-primary/40 text-primary"></div>
           </div>
           
           <h2 className="font-display text-[26px] sm:text-3xl md:text-5xl lg:text-5xl font-black text-white uppercase tracking-tight leading-[1.1]">
-            Confiança <br className="md:hidden" /><span className="text-primary">Comprovada em Missão</span>
+            Quem Usa <br className="md:hidden" /><span className="text-primary">E Recomenda</span>
           </h2>
         </div>
       </div>
