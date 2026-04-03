@@ -84,7 +84,7 @@ const VehicleSlider = () => {
           src={vehicles[index].src}
           alt={vehicles[index].alt}
           className="w-full drop-shadow-[0_0_60px_rgba(235,19,19,0.5)]"
-          style={{ zIndex: 10, position: "relative", transform: `rotate(${vehicles[index].rotate}deg)` }}
+          style={{ zIndex: 10, position: "relative", transform: fading ? "rotate(0deg)" : `rotate(${vehicles[index].rotate}deg)`, transition: "transform 0.3s ease-in-out" }}
           draggable={false}
           loading="lazy"
           decoding="async"
