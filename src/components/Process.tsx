@@ -1,94 +1,49 @@
-// Removed useInView
-import { cn } from "@/lib/utils";
-import { MousePointerClick, Wrench, Smartphone } from "lucide-react";
+import { MessageSquare, Wrench, Smartphone, MapPin } from "lucide-react";
+import { motion } from "framer-motion";
 
-const steps = [
-  {
-    number: "01",
-    title: "Escolha seu Plano",
-    desc: "Selecione o plano ideal para o seu veículo. Sem taxa de adesão, sem fidelidade — tudo transparente.",
-    icon: MousePointerClick,
-  },
-  {
-    number: "02",
-    title: "Instalação Profissional",
-    desc: "Nossa equipe técnica instala o dispositivo de forma rápida e discreta, sem interferência na elétrica do veículo.",
-    icon: Wrench,
-  },
-  {
-    number: "03",
-    title: "Monitore pelo App",
-    desc: "Acesse em tempo real pelo aplicativo. Localização, bloqueio e alertas na palma da mão, onde você estiver.",
-    icon: Smartphone,
-  },
+const STEPS = [
+  { icon: MessageSquare, title: "Solicite um orçamento", desc: "Fale conosco pelo WhatsApp e receba seu orçamento." },
+  { icon: Wrench, title: "Agende a instalação", desc: "Escolha o melhor dia e horário. Nossa equipe vai até você." },
+  { icon: Smartphone, title: "Ative o aplicativo", desc: "Receba seu acesso e ative o app em minutos." },
+  { icon: MapPin, title: "Acompanhe seu veículo", desc: "Rastreie em tempo real e tenha total controle e segurança." },
 ];
 
-const Process = () => {
-
-  return (
-    <section id="processo" className="py-32 md:py-40 bg-[#060606] relative overflow-hidden">
-      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
-      {/* Background flares - CENTRALIZADOS */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[1000px] h-[600px] md:h-[1000px] bg-primary/[0.05] blur-[150px] pointer-events-none rounded-full" />
-
-      <div className="container relative z-10 max-w-6xl mx-auto">
-
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-24">
-          <p className="text-primary font-display font-black text-xs uppercase tracking-[0.4em] mb-5 opacity-90">
-            Processo
-          </p>
-          <h2 className="font-display text-2xl md:text-3xl lg:text-5xl font-black text-white uppercase tracking-tight leading-[1.1]">
-            Em 3 passos,
-            <span className="block text-primary mt-1" style={{ textShadow: "0 0 40px hsl(var(--primary)/0.4)" }}>
-              seu veículo protegido
-            </span>
-          </h2>
-        </div>
-
-        {/* Steps */}
-        <div className="grid md:grid-cols-3 gap-6 md:gap-8 relative">
-
-          {steps.map((step, i) => (
-            <div
-              key={step.number}
-              className="group relative flex flex-col transition-all duration-700"
-            >
-              <div className="relative flex flex-col h-full rounded-none border border-white/5 bg-[#0D0D0D] p-10 transition-all duration-500 z-10 hover:z-20 hover:bg-[#121212] hover:-translate-y-2 hover:border-primary/30 hover:shadow-[0_20px_40px_rgba(235,19,19,0.15)]">
-                {/* Tactical Accent */}
-                <div className="absolute top-0 left-0 w-16 h-[2px] bg-primary group-hover:w-full transition-all duration-700 ease-out" />
-
-
-{/* Icon + badge */}
-                <div className="relative w-16 h-16 mb-10 z-10">
-                  <div className="absolute inset-0 rounded-none bg-primary/5 border border-primary/20 group-hover:bg-primary transition-all duration-500" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <step.icon className="h-7 w-7 text-primary group-hover:text-white transition-colors duration-300" />
-                  </div>
-                  {/* Badge */}
-                  <div className="absolute -top-3 -right-3 w-7 h-7 rounded-none bg-primary flex items-center justify-center text-[11px] font-black text-white shadow-[0_0_15px_rgba(255,0,0,0.6)]">
-                    {step.number}
-                  </div>
-                </div>
-
-                {/* Text */}
-                <div className="relative z-10 flex-1 flex flex-col">
-                  <h3 className="font-display text-base md:text-lg font-black text-white mb-3 uppercase tracking-wider">
-                    {step.title}
-                  </h3>
-                  <p className="text-white/45 text-sm leading-relaxed font-light group-hover:text-white/60 transition-colors duration-300">
-                    {step.desc}
-                  </p>
-                </div>
-
-              </div>
-            </div>
-          ))}
-        </div>
-
+const Process = () => (
+  <section id="como-funciona" className="py-20 md:py-28">
+    <div className="container">
+      <div className="text-center max-w-2xl mx-auto">
+        <p className="text-sm font-bold uppercase tracking-[0.2em] text-primary">Como funciona</p>
+        <h2 className="mt-3 font-display text-3xl md:text-4xl font-extrabold text-foreground">
+          É simples e rápido
+        </h2>
       </div>
-    </section>
-  );
-};
+
+      <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4 relative">
+        {/* linha conectora */}
+        <div className="hidden lg:block absolute top-[46px] left-[12%] right-[12%] h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+
+        {STEPS.map((step, i) => (
+          <motion.div
+            key={step.title}
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.5, delay: i * 0.12 }}
+            className="group relative ring-gradient rounded-3xl neu neu-hover p-6 text-center"
+          >
+            <div className="mx-auto relative grid place-items-center h-16 w-16 rounded-2xl bg-gradient-to-br from-primary to-accent text-white shadow-lg shadow-primary/30">
+              <step.icon className="h-6 w-6" />
+              <span className="absolute -top-2 -right-2 grid place-items-center h-7 w-7 rounded-full neu-sm text-primary text-xs font-extrabold">
+                {i + 1}
+              </span>
+            </div>
+            <h3 className="mt-5 font-bold text-foreground">{step.title}</h3>
+            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
 
 export default Process;

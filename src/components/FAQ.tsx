@@ -1,107 +1,87 @@
-import { useState } from "react";
-import { ChevronDown, MessageSquare } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { useInView } from "@/hooks/use-in-view";
+import { MessageCircle } from "lucide-react";
+import { motion } from "framer-motion";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
-const faqs = [
+const WHATSAPP = "https://wa.me/5591984000000?text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida%20sobre%20a%20Rastro%20F%C3%A1cil%20GPS.";
+
+const FAQS = [
   {
-    question: "Consigo ver meu veículo em tempo real?",
-    answer: "Sim! Você pode visualizar a localização do seu veículo em tempo real através do aplicativo ou plataforma web, com atualizações constantes.",
+    q: "O rastreador funciona em motos?",
+    a: "Sim! Instalamos em carros, motos, caminhões e frotas. Temos rastreadores específicos para cada tipo de veículo.",
   },
   {
-    question: "Posso usar em mais de um veículo?",
-    answer: "Sim! Você pode gerenciar vários veículos na mesma conta.",
+    q: "Tem taxa de instalação?",
+    a: "A instalação é feita por nossa equipe técnica. Fale conosco pelo WhatsApp para conhecer as condições e valores atualizados.",
   },
   {
-    question: "Como contratar o serviço?",
-    answer: "É simples! Basta clicar no botão falar com um atendente e falar com nossa equipe para ativar seu rastreamento rapidamente.",
+    q: "Precisa de internet para o rastreador funcionar?",
+    a: "Não. O rastreador possui um chip próprio com cobertura 4G nacional. Você só precisa de internet no seu celular para acessar o aplicativo.",
   },
   {
-    question: "Posso realizar o bloqueio do veículo sozinho?",
-    answer: "Sim! Pelo nosso aplicativo nativo, basta um clique e a senha mestra para efetuar o corte imediato da ignição e injeção do seu veículo em caso de furto.",
+    q: "Como funciona a instalação?",
+    a: "Você agenda o melhor dia e horário e nossa equipe vai até você. O processo é rápido, discreto e sem burocracia.",
   },
   {
-    question: "O rastreador funciona em rodovias ou locais remotos?",
-    answer: "Utilizamos módulos GPRS e chips M2M de telemetria multioperadora. Se uma operadora perder o sinal em uma estrada, o aparelho troca para a melhor conexão automaticamente.",
+    q: "Posso bloquear o veículo pelo celular?",
+    a: "Sim, no Plano Completo você bloqueia e desbloqueia o motor do veículo remotamente, direto pelo aplicativo, em segundos.",
   },
   {
-    question: "Quanto tempo depois de fechar demora a instalação?",
-    answer: "As instalações na região principal costumam ser resolvidas em até 24 horas úteis após a aprovação do plano. O tempo de instalação no carro dura cerca de 1 hora.",
-  }
+    q: "Quais as formas de pagamento?",
+    a: "Aceitamos Pix, cartão de crédito e boleto. A mensalidade pode ser paga de forma recorrente para sua comodidade.",
+  },
 ];
 
-const FAQ = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
-  const { ref, inView } = useInView();
-
-  return (
-    <section id="faq" className="py-32 md:py-40 relative overflow-hidden bg-[#040404]">
-      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
-      <div className="container max-w-4xl relative z-10" ref={ref}>
-        {/* Header */}
-        <div className="text-center mb-20">
-          <p className="text-primary font-display font-black text-sm uppercase tracking-[0.3em] mb-4 flex items-center justify-center gap-2">
-            <MessageSquare className="h-4 w-4" /> Dúvidas Frequentes
-          </p>
-          <h2 className="font-display text-2xl md:text-3xl lg:text-5xl font-black text-white mb-6 uppercase tracking-tight">
-            Perguntas & Respostas
+const FAQ = () => (
+  <section id="faq" className="py-20 md:py-28">
+    <div className="container">
+      <div className="grid lg:grid-cols-[0.7fr_1.3fr] gap-10 lg:gap-16 items-start">
+        <div className="lg:sticky lg:top-28">
+          <p className="text-sm font-bold uppercase tracking-[0.2em] text-primary">Dúvidas frequentes</p>
+          <h2 className="mt-3 font-display text-3xl md:text-4xl font-extrabold leading-tight text-foreground">
+            Perguntas frequentes
           </h2>
-          <p className="text-white/50 text-lg font-light">
-            Informação transparente e direta sobre nossa tecnologia e serviços.
-          </p>
+          <a
+            href={WHATSAPP}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-flex items-center gap-2 rounded-full neu-sm neu-pressable px-5 py-3 text-sm font-semibold text-primary"
+          >
+            <MessageCircle className="h-4 w-4" />
+            Fale no WhatsApp
+          </a>
         </div>
 
-        {/* Accordion List */}
-        <div className="space-y-4">
-          {faqs.map((faq, i) => {
-            const isOpen = openIndex === i;
-            return (
-              <div 
-                key={i} 
-                className={cn(
-                  "rounded-none overflow-hidden transition-all duration-500",
-                  isOpen 
-                    ? "bg-[#0E0E0E] shadow-[0_30px_80px_rgba(0,0,0,0.8)]" 
-                    : "bg-[#080808] hover:bg-[#0A0A0A]"
-                )}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.5 }}
+        >
+          <Accordion type="single" collapsible className="grid md:grid-cols-2 gap-x-5 gap-y-3">
+            {FAQS.map((item, i) => (
+              <AccordionItem
+                key={i}
+                value={`item-${i}`}
+                className="rounded-2xl neu px-5 data-[state=open]:border-primary/40"
               >
-                <div className={cn("h-[1px] w-full transition-all duration-500", isOpen ? "bg-primary" : "bg-white/5")} />
-                <button
-                  onClick={() => setOpenIndex(isOpen ? null : i)}
-                  className="w-full flex items-center justify-between p-6 md:p-8 text-left focus:outline-none"
-                >
-                  <span className={cn(
-                    "font-sans text-sm md:text-base font-light transition-colors",
-                    isOpen ? "text-white" : "text-white/60 hover:text-white"
-                  )}>
-                    {faq.question}
-                  </span>
-                  <div className={cn(
-                    "w-10 h-10 rounded-none bg-white/5 flex items-center justify-center transition-all duration-300",
-                    isOpen && "bg-primary text-white rotate-180 shadow-[0_0_15px_rgba(255,0,0,0.4)]"
-                  )}>
-                    <ChevronDown className="h-5 w-5" />
-                  </div>
-                </button>
-                <div 
-                  className={cn(
-                    "grid transition-all duration-300 ease-in-out",
-                    isOpen ? "grid-rows-[1fr] opacity-100 mb-6" : "grid-rows-[0fr] opacity-0"
-                  )}
-                >
-                  <div className="overflow-hidden px-6 md:px-8">
-                    <p className="text-white/50 font-sans font-light leading-relaxed">
-                      {faq.answer}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+                <AccordionTrigger className="text-left text-sm font-semibold text-foreground hover:no-underline">
+                  {item.q}
+                </AccordionTrigger>
+                <AccordionContent className="text-sm text-muted-foreground leading-relaxed">
+                  {item.a}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </motion.div>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default FAQ;

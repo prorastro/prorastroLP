@@ -1,127 +1,123 @@
-import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useState, useEffect } from "react";
-import prorastroFull from "@/assets/prorastro-full.png";
+import { useEffect, useState } from "react";
+import { MapPin, Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+
+const NAV = [
+  { label: "Início", href: "#inicio" },
+  { label: "Recursos", href: "#recursos" },
+  { label: "Planos", href: "#planos" },
+  { label: "Como funciona", href: "#como-funciona" },
+  { label: "Depoimentos", href: "#depoimentos" },
+  { label: "FAQ", href: "#faq" },
+  { label: "Contato", href: "#contato" },
+];
+
+const WHATSAPP = "https://wa.me/5591984000000?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20da%20Rastro%20F%C3%A1cil%20GPS.";
+
+const Logo = ({ dark = false }: { dark?: boolean }) => (
+  <a href="#inicio" className="flex items-center gap-2.5 shrink-0">
+    <span className="relative grid place-items-center h-10 w-10 rounded-xl bg-gradient-to-br from-primary to-accent shadow-lg shadow-primary/30">
+      <MapPin className="h-5 w-5 text-white" strokeWidth={2.5} />
+    </span>
+    <span className="leading-none">
+      <span className={`block font-display font-extrabold text-lg tracking-tight ${dark ? "text-white" : "text-foreground"}`}>
+        Rastro Fácil
+      </span>
+      <span className="block text-[0.6rem] font-semibold tracking-[0.35em] text-primary">GPS</span>
+    </span>
+  </a>
+);
 
 const Header = () => {
-  const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-background/95 shadow-2xl shadow-black/50 backdrop-blur-xl border-b border-white/5"
-          : "bg-background/80 backdrop-blur-xl border-b border-white/5"
+    <motion.header
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
+        scrolled ? "bg-background/85 backdrop-blur-xl shadow-[0_6px_20px_hsl(var(--neu-dark)/0.35)]" : "bg-transparent"
       }`}
     >
-      <div className="container flex h-16 items-center justify-between">
-        <a href="/" className="flex items-center overflow-hidden">
-          <img
-            src={prorastroFull}
-            alt="ProRastro"
-            className={`h-12 md:h-14 w-auto object-contain transition-all duration-500 ease-in-out ${
-              scrolled
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 -translate-y-2 pointer-events-none"
-            }`}
-          />
-        </a>
+      <div className="container flex items-center justify-between h-[72px]">
+        <Logo dark={!scrolled} />
 
-        <nav className="hidden md:flex items-center gap-8">
-          <a
-            href="#recursos"
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-          >
-            Recursos
-          </a>
-          <a
-            href="#planos"
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-          >
-            Planos
-          </a>
-          <a
-            href="#contato"
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-          >
-            Contato
-          </a>
-          <a
-            href="https://wa.me/5591920006246?text=Ol%C3%A1,%20gostaria%20da%20segunda%20via%20da%20minha%20fatura."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
-          >
-            2ª Via Fatura
-          </a>
-          <a href="https://tracker.prorastro.com.br" target="_blank" rel="noopener noreferrer">
-            <Button
-              size="sm"
-              className="rounded-none font-display font-bold uppercase tracking-widest shadow-[0_0_20px_hsl(var(--primary)/0.3)] hover:shadow-[0_0_30px_hsl(var(--primary)/0.6)] transition-all hover:-translate-y-0.5"
+        <nav className="hidden lg:flex items-center gap-7">
+          {NAV.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className={`text-sm font-medium transition-colors hover:text-primary ${
+                scrolled ? "text-foreground/80" : "text-white/85"
+              }`}
             >
-              Área do Cliente
-            </Button>
-          </a>
+              {item.label}
+            </a>
+          ))}
         </nav>
 
-        <button
-          className="md:hidden text-foreground p-1 hover:bg-white/5 transition-colors"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Abrir menu"
+        <a
+          href={WHATSAPP}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden lg:inline-flex items-center rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-white shadow-lg shadow-primary/30 neu-pressable transition-all hover:-translate-y-0.5 hover:bg-primary/90 active:scale-95"
         >
-          {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          Solicitar orçamento
+        </a>
+
+        <button
+          onClick={() => setOpen((v) => !v)}
+          aria-label="Menu"
+          className={`lg:hidden grid place-items-center h-10 w-10 rounded-lg transition-colors ${
+            scrolled ? "text-foreground hover:bg-secondary" : "text-white hover:bg-white/10"
+          }`}
+        >
+          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
 
-      {mobileOpen && (
-        <div className="md:hidden border-t border-border bg-background/98 backdrop-blur-xl">
-          <nav className="container flex flex-col gap-2 py-6">
-            <a
-              href="#recursos"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2 px-3 rounded-lg hover:bg-secondary/50"
-              onClick={() => setMobileOpen(false)}
-            >
-              Recursos
-            </a>
-            <a
-              href="#planos"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2 px-3 rounded-lg hover:bg-secondary/50"
-              onClick={() => setMobileOpen(false)}
-            >
-              Planos
-            </a>
-            <a
-              href="#contato"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2 px-3 rounded-lg hover:bg-secondary/50"
-              onClick={() => setMobileOpen(false)}
-            >
-              Contato
-            </a>
-            <a
-              href="https://wa.me/5591920006246?text=Ol%C3%A1,%20gostaria%20da%20segunda%20via%20da%20minha%20fatura."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm font-semibold text-primary hover:text-primary/80 transition-colors py-2 px-3 rounded-lg hover:bg-secondary/50"
-              onClick={() => setMobileOpen(false)}
-            >
-              2ª Via Fatura
-            </a>
-            <a href="https://tracker.prorastro.com.br" target="_blank" rel="noopener noreferrer" className="mt-3">
-              <Button className="rounded-none font-display font-bold uppercase tracking-widest w-full">
-                Área do Cliente
-              </Button>
-            </a>
-          </nav>
-        </div>
-      )}
-    </header>
+      <AnimatePresence>
+        {open && (
+          <motion.nav
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="lg:hidden overflow-hidden bg-background shadow-[0_10px_24px_hsl(var(--neu-dark)/0.4)]"
+          >
+            <div className="container py-4 flex flex-col gap-1">
+              {NAV.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className="py-2.5 text-sm font-medium text-foreground/80 hover:text-primary"
+                >
+                  {item.label}
+                </a>
+              ))}
+              <a
+                href={WHATSAPP}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 inline-flex items-center justify-center rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white"
+              >
+                Solicitar orçamento
+              </a>
+            </div>
+          </motion.nav>
+        )}
+      </AnimatePresence>
+    </motion.header>
   );
 };
 
